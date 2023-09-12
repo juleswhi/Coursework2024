@@ -4,5 +4,10 @@ namespace AuthenticationLib.Login;
 
 public static class Login
 {
-    public static Name CurrentUser { get; private set; }
+    public static bool LoginUser(string username, string password) {
+        return true; 
+    }
+    public static User? CurrentUser { get; private set; } = null;
+
+
 }

@@ -1,11 +1,15 @@
-﻿namespace UserDetails;
+﻿using System.Runtime.Serialization;
 
-public class Name : IEquatable<Name>
+namespace UserDetails;
+
+[DataContract]
+public class Name
 {
-    public Name(string Forname, string Surname)
+    public Name(string Forname, string Surname, string? Username = null)
     {
         this.Forname = Forname;
         this.Surname = Surname;
+        if (Username != null) this.Username = Username;
     }
     public Name(string Forname, string Surname, int Number)
     {
@@ -14,28 +18,10 @@ public class Name : IEquatable<Name>
         this.Surname = Surname;
         this.Username = $"{Forname[0]}{Surname}{Number}";
     }
+    [DataMember]
     public string Username { get; set; }
+    [DataMember]
     public string Forname { get; set; }
+    [DataMember]
     public string Surname { get; set; }
-    
-
-
-    // Implement IEquatable
-
-    public bool Equals(Name? other)
-    {
-        if (other is null) return false;
-
-        if (other.Username == this.Username) return true;
-
-        return false;
-    }
-
-    public static bool operator ==(Name? left, Name? right) => left!.Username == right!.Username;
-    
-    public static bool operator !=(Name? left, Name? right) =>  !(left!.Username == right!.Username);
-
-
-
-
 }
