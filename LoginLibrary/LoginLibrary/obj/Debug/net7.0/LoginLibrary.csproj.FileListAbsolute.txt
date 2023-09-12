@@ -1,0 +1,11 @@
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\LoginLibrary\LoginLibrary\bin\Debug\net7.0\LoginLibrary.deps.json
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\LoginLibrary\LoginLibrary\bin\Debug\net7.0\LoginLibrary.dll
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\LoginLibrary\LoginLibrary\bin\Debug\net7.0\LoginLibrary.pdb
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\LoginLibrary\LoginLibrary\obj\Debug\net7.0\LoginLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\LoginLibrary\LoginLibrary\obj\Debug\net7.0\LoginLibrary.AssemblyInfoInputs.cache
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\LoginLibrary\LoginLibrary\obj\Debug\net7.0\LoginLibrary.AssemblyInfo.cs
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\LoginLibrary\LoginLibrary\obj\Debug\net7.0\LoginLibrary.csproj.CoreCompileInputs.cache
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\LoginLibrary\LoginLibrary\obj\Debug\net7.0\LoginLibrary.dll
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\LoginLibrary\LoginLibrary\obj\Debug\net7.0\refint\LoginLibrary.dll
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\LoginLibrary\LoginLibrary\obj\Debug\net7.0\LoginLibrary.pdb
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\LoginLibrary\LoginLibrary\obj\Debug\net7.0\ref\LoginLibrary.dll
