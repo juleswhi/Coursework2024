@@ -1,6 +1,6 @@
 ﻿namespace UserDetails;
 
-public struct Name
+public class Name : IEquatable<Name>
 {
     public Name(string Forname, string Surname)
     {
@@ -17,4 +17,25 @@ public struct Name
     public string Username { get; set; }
     public string Forname { get; set; }
     public string Surname { get; set; }
+    
+
+
+    // Implement IEquatable
+
+    public bool Equals(Name? other)
+    {
+        if (other is null) return false;
+
+        if (other.Username == this.Username) return true;
+
+        return false;
+    }
+
+    public static bool operator ==(Name? left, Name? right) => left!.Username == right!.Username;
+    
+    public static bool operator !=(Name? left, Name? right) =>  !(left!.Username == right!.Username);
+
+
+
+
 }
