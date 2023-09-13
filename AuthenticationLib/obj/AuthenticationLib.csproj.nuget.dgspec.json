@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\SSD_Coursework\\LoginLibrary\\AuthenticationLib.csproj": {}
+    "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\SSD_Coursework\\LoginLibrary\\AuthenticationLib.csproj": {
+    "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\SSD_Coursework\\LoginLibrary\\AuthenticationLib.csproj",
+        "projectUniqueName": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj",
         "projectName": "AuthenticationLib",
-        "projectPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\SSD_Coursework\\LoginLibrary\\AuthenticationLib.csproj",
+        "projectPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj",
         "packagesPath": "C:\\Users\\elliot alderson\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\SSD_Coursework\\LoginLibrary\\obj\\",
+        "outputPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\elliot alderson\\AppData\\Roaming\\NuGet\\NuGet.Config",

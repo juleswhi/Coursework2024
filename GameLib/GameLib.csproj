@@ -7,9 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Chess\Board\" />
     <Folder Include="Chess\MoveGen\" />
     <Folder Include="Chess\Helpers\" />
+    <Folder Include="TopDownShooter\" />
+    <Folder Include="Trex\" />
+    <Folder Include="Platformer\" />
+    <Folder Include="SpaceInvaders\" />
+    <Folder Include="Suduko\" />
   </ItemGroup>
 
 </Project>

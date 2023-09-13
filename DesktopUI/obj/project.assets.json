@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\SSD_Coursework\\DesktopUI\\DesktopUI.csproj",
+      "projectUniqueName": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\DesktopUI\\DesktopUI.csproj",
       "projectName": "DesktopUI",
-      "projectPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\SSD_Coursework\\DesktopUI\\DesktopUI.csproj",
+      "projectPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\DesktopUI\\DesktopUI.csproj",
       "packagesPath": "C:\\Users\\elliot alderson\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\SSD_Coursework\\DesktopUI\\obj\\",
+      "outputPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\DesktopUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\elliot alderson\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,8 +53,8 @@
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
           "projectReferences": {
-            "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\SSD_Coursework\\LoginLibrary\\AuthenticationLib.csproj": {
-              "projectPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\SSD_Coursework\\LoginLibrary\\AuthenticationLib.csproj"
+            "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\LoginLibrary\\AuthenticationLib.csproj": {
+              "projectPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\LoginLibrary\\AuthenticationLib.csproj"
             }
           }
         }

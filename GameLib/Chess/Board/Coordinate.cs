@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Chess.Board;
 
-namespace GameLib.Chess.Board
+public class Coordinate
 {
-    internal class Coordinate
+    public int File { get; }
+    public int Rank { get; }
+
+    public Coordinate(int file, int rank)
     {
+        this.File = file;
+        this.Rank = rank;
     }
+
+
+
 }
