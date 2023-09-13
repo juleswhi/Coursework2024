@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net7.0-windows7.0": {
-      "AuthenticationLib/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "compile": {
-          "bin/placeholder/AuthenticationLib.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/AuthenticationLib.dll": {}
-        }
-      }
-    }
+    "net7.0-windows7.0": {}
   },
-  "libraries": {
-    "AuthenticationLib/1.0.0": {
-      "type": "project",
-      "path": "../LoginLibrary/AuthenticationLib.csproj",
-      "msbuildProject": "../LoginLibrary/AuthenticationLib.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net7.0-windows7.0": [
-      "AuthenticationLib >= 1.0.0"
-    ]
+    "net7.0-windows7.0": []
   },
   "packageFolders": {
     "C:\\Users\\elliot alderson\\.nuget\\packages\\": {}
@@ -32,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\SSD_Coursework\\DesktopUI\\DesktopUI.csproj",
-      "projectName": "DesktopUI",
-      "projectPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\SSD_Coursework\\DesktopUI\\DesktopUI.csproj",
+      "projectUniqueName": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj",
+      "projectName": "FormsLib",
+      "projectPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj",
       "packagesPath": "C:\\Users\\elliot alderson\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\SSD_Coursework\\DesktopUI\\obj\\",
+      "outputPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\FormsLib\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\elliot alderson\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -52,11 +33,7 @@
       "frameworks": {
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
-          "projectReferences": {
-            "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\SSD_Coursework\\LoginLibrary\\AuthenticationLib.csproj": {
-              "projectPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\SSD_Coursework\\LoginLibrary\\AuthenticationLib.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

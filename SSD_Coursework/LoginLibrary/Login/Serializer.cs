@@ -19,19 +19,19 @@ public static class Serializer
         return Code.Ok;
     } 
 
-    public static (Code, List<T>) Deserialize<T>(this List<T> _, string filepath)
+    public static List<T> Deserialize<T>(this List<T> _, string filepath)
     {
         try { 
             using (FileStream fs = new FileStream(filepath, FileMode.Open))
             {
                 DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<T>));
 
-                return (Code.Ok, (List<T>)serializer.ReadObject(fs)!);
+                return (List<T>)serializer.ReadObject(fs)!;
             }
         }
 
-        catch(FileNotFoundException) { 
-            return (Code.FileNotFound, new());
-        }
+        catch(FileNotFoundException) { }
+
+        return new();
     }
 }

@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Chess\" />
+    <Folder Include="Chess\Board\" />
+    <Folder Include="Chess\MoveGen\" />
+    <Folder Include="Chess\Helpers\" />
   </ItemGroup>
 
 </Project>
