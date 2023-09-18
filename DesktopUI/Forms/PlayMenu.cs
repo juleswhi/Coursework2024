@@ -1,8 +1,8 @@
 ﻿namespace DesktopUI.Forms;
 
-public partial class MainMenu : Form
+public partial class PlayMenu : Form
 {
-    public MainMenu()
+    public PlayMenu()
     {
         InitializeComponent();
     }

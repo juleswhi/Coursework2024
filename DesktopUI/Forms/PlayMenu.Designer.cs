@@ -1,6 +1,6 @@
 ﻿namespace DesktopUI.Forms
 {
-    partial class MainMenu
+    partial class PlayMenu
     {
         /// <summary>
         /// Required designer variable.

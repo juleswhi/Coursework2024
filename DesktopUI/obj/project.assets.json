@@ -11,6 +11,19 @@
         "runtime": {
           "bin/placeholder/AuthenticationLib.dll": {}
         }
+      },
+      "FormsLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/FormsLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FormsLib.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
       }
     }
   },
@@ -19,11 +32,17 @@
       "type": "project",
       "path": "../LoginLibrary/AuthenticationLib.csproj",
       "msbuildProject": "../LoginLibrary/AuthenticationLib.csproj"
+    },
+    "FormsLib/1.0.0": {
+      "type": "project",
+      "path": "../FormsLib/FormsLib.csproj",
+      "msbuildProject": "../FormsLib/FormsLib.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0-windows7.0": [
-      "AuthenticationLib >= 1.0.0"
+      "AuthenticationLib >= 1.0.0",
+      "FormsLib >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -53,6 +72,9 @@
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
           "projectReferences": {
+            "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj": {
+              "projectPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj"
+            },
             "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\LoginLibrary\\AuthenticationLib.csproj": {
               "projectPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\LoginLibrary\\AuthenticationLib.csproj"
             }
