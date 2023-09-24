@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v7.0": {
       "FormsLib/1.0.0": {
+        "dependencies": {
+          "GameLib": "1.0.0"
+        },
         "runtime": {
           "FormsLib.dll": {}
+        }
+      },
+      "GameLib/1.0.0": {
+        "runtime": {
+          "GameLib.dll": {}
         }
       }
     }
   },
   "libraries": {
     "FormsLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GameLib/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -15,3 +15,6 @@ C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\ref\FormsLib.dll
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.Menus.MainMenu.resources
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.Menus.MenuHolder.resources
+C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\bin\Debug\net7.0-windows\GameLib.dll
+C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\bin\Debug\net7.0-windows\GameLib.pdb
+C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.csproj.CopyComplete

@@ -15,6 +15,9 @@
       "FormsLib/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "GameLib": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/FormsLib.dll": {}
         },
@@ -24,6 +27,16 @@
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WindowsForms"
         ]
+      },
+      "GameLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/GameLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GameLib.dll": {}
+        }
       }
     }
   },
@@ -37,6 +50,11 @@
       "type": "project",
       "path": "../FormsLib/FormsLib.csproj",
       "msbuildProject": "../FormsLib/FormsLib.csproj"
+    },
+    "GameLib/1.0.0": {
+      "type": "project",
+      "path": "../GameLib/GameLib.csproj",
+      "msbuildProject": "../GameLib/GameLib.csproj"
     }
   },
   "projectFileDependencyGroups": {

@@ -28,19 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            flowLayoutPanel1 = new FlowLayoutPanel();
             SuspendLayout();
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Anchor = AnchorStyles.None;
+            flowLayoutPanel1.Location = new Point(178, 12);
+            flowLayoutPanel1.Margin = new Padding(0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(400, 400);
+            flowLayoutPanel1.TabIndex = 0;
             // 
             // formBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(250, 241, 228);
+            BackColor = Color.Moccasin;
             ClientSize = new Size(800, 450);
+            Controls.Add(flowLayoutPanel1);
             Name = "formBoard";
             Text = "formBoard";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

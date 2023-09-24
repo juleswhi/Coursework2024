@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net7.0-windows7.0": {}
+    "net7.0-windows7.0": {
+      "GameLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/GameLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GameLib.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "GameLib/1.0.0": {
+      "type": "project",
+      "path": "../GameLib/GameLib.csproj",
+      "msbuildProject": "../GameLib/GameLib.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0-windows7.0": []
+    "net7.0-windows7.0": [
+      "GameLib >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\elliot alderson\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\GameLib\\GameLib.csproj": {
+              "projectPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\GameLib\\GameLib.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

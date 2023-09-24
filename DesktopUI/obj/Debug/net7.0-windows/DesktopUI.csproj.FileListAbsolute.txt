@@ -18,3 +18,5 @@ C:\Users\elliot alderson\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.pdb
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.genruntimeconfig.cache
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\ref\DesktopUI.dll
+C:\Users\elliot alderson\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\GameLib.dll
+C:\Users\elliot alderson\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\GameLib.pdb

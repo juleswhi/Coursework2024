@@ -5,6 +5,9 @@
     <Compile Update="Chess\formBoard.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Chess\Square.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Menus\LoginMenu.cs">
       <SubType>Form</SubType>
     </Compile>
