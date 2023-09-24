@@ -14,4 +14,6 @@ public static class ChessHelper
         (8, int Row) => new Notation('h', Row),
     };
 
+    public static string ImageDirectory = "../../../../FormsLib/Chess/Images/";
+
 }
