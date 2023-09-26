@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FormsLib\FormsLib.csproj" />
-    <ProjectReference Include="..\LoginLibrary\AuthenticationLib.csproj" />
+    <ProjectReference Include="..\AuthenticationLib\AuthenticationLib.csproj" />
   </ItemGroup>
 
 </Project>

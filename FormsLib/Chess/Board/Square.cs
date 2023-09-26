@@ -4,6 +4,8 @@ namespace FormsLib.Chess;
 
 public class Square : Panel
 {
+
+    public Label Label = new Label();
     public Square(int i, int j, FlowLayoutPanel flp)
     {
         SquareNumber = i + j;
@@ -29,6 +31,9 @@ public class Square : Panel
         var pad = new Padding(0, 0, 0, 0);
         Padding = pad;
         Margin = pad;
+
+
+        this.Controls.Add(Label);
     }
 
     public const int SIZE = 50;

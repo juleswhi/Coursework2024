@@ -10,3 +10,14 @@ C:\Users\elliot alderson\Documents\GitHub\Coursework2024\SSD_Coursework\LoginLib
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\SSD_Coursework\LoginLibrary\obj\Debug\net7.0\refint\AuthenticationLib.dll
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\SSD_Coursework\LoginLibrary\obj\Debug\net7.0\AuthenticationLib.pdb
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\SSD_Coursework\LoginLibrary\obj\Debug\net7.0\ref\AuthenticationLib.dll
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\AuthenticationLib\bin\Debug\net7.0\AuthenticationLib.deps.json
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\AuthenticationLib\bin\Debug\net7.0\AuthenticationLib.dll
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\AuthenticationLib\bin\Debug\net7.0\AuthenticationLib.pdb
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\AuthenticationLib\obj\Debug\net7.0\AuthenticationLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\AuthenticationLib\obj\Debug\net7.0\AuthenticationLib.AssemblyInfoInputs.cache
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\AuthenticationLib\obj\Debug\net7.0\AuthenticationLib.AssemblyInfo.cs
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\AuthenticationLib\obj\Debug\net7.0\AuthenticationLib.csproj.CoreCompileInputs.cache
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\AuthenticationLib\obj\Debug\net7.0\AuthenticationLib.dll
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\AuthenticationLib\obj\Debug\net7.0\refint\AuthenticationLib.dll
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\AuthenticationLib\obj\Debug\net7.0\AuthenticationLib.pdb
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\AuthenticationLib\obj\Debug\net7.0\ref\AuthenticationLib.dll

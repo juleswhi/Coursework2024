@@ -1,45 +1,26 @@
 {
   "version": 3,
   "targets": {
-    "net7.0-windows7.0": {
-      "GameLib/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "compile": {
-          "bin/placeholder/GameLib.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/GameLib.dll": {}
-        }
-      }
-    }
+    "net7.0-windows7.0": {}
   },
-  "libraries": {
-    "GameLib/1.0.0": {
-      "type": "project",
-      "path": "../GameLib/GameLib.csproj",
-      "msbuildProject": "../GameLib/GameLib.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net7.0-windows7.0": [
-      "GameLib >= 1.0.0"
-    ]
+    "net7.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\elliot alderson\\.nuget\\packages\\": {}
+    "C:\\Users\\i hate windows\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj",
+      "projectUniqueName": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj",
       "projectName": "FormsLib",
-      "projectPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj",
-      "packagesPath": "C:\\Users\\elliot alderson\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\FormsLib\\obj\\",
+      "projectPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj",
+      "packagesPath": "C:\\Users\\i hate windows\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\FormsLib\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\elliot alderson\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\i hate windows\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -52,11 +33,7 @@
       "frameworks": {
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
-          "projectReferences": {
-            "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\GameLib\\GameLib.csproj": {
-              "projectPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\GameLib\\GameLib.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -87,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

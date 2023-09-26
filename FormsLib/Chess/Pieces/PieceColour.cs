@@ -1,4 +1,4 @@
-﻿namespace FormsLib.Chess.Pieces;
+﻿namespace Chess.Pieces;
 
 public enum PieceColour 
 {

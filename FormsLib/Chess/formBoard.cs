@@ -7,9 +7,11 @@ using System.Linq;
 using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
+
 using System.Windows.Forms;
 using Helpers;
-using FormsLib.Chess.Pieces;
+using Chess.Pieces;
+using FormsLib.Chess;
 
 namespace FormsLib.Chess;
 
@@ -57,7 +59,7 @@ public partial class formBoard : Form
             .ToList();
 
         // Print coords 
-        // Squares.ForEach(x => x.AddText());
+        Squares.ForEach(x => x.AddText());
     }
 
     public void AddPieces()

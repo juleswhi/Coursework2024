@@ -1,5 +1,5 @@
 ﻿using Helpers;
-namespace FormsLib.Chess.Pieces;
+namespace Chess.Pieces;
 
 public class Piece
 {
@@ -19,10 +19,13 @@ public class Piece
         this.Colour = (PieceColour)Colour;
     }
 
+    private void GetCorrectImage() => Image = Image.FromFile($"{ChessHelper.ImageDirectory}{Colour}{Type}.png");
+
 
     public PieceType Type { get; set; }
     public PieceColour Colour { get; set; }
     public Notation Notation { get; set; }
+    public Image Image { get; set; }
 
 
 }

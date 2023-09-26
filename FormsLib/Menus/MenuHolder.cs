@@ -12,7 +12,7 @@ namespace FormsLib.Menus
 {
     public partial class MenuHolder : Form
     {
-        private Form activeForm;
+        public Form activeForm { get; set; }
         public MenuHolder()
         {
             InitializeComponent();

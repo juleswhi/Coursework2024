@@ -10,3 +10,14 @@ C:\Users\elliot alderson\Documents\GitHub\Coursework2024\GameLib\obj\Debug\net7.
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\GameLib\obj\Debug\net7.0\refint\GameLib.dll
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\GameLib\obj\Debug\net7.0\GameLib.pdb
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\GameLib\obj\Debug\net7.0\ref\GameLib.dll
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\GameLib\bin\Debug\net7.0\GameLib.deps.json
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\GameLib\bin\Debug\net7.0\GameLib.dll
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\GameLib\bin\Debug\net7.0\GameLib.pdb
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\GameLib\obj\Debug\net7.0\GameLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\GameLib\obj\Debug\net7.0\GameLib.AssemblyInfoInputs.cache
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\GameLib\obj\Debug\net7.0\GameLib.AssemblyInfo.cs
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\GameLib\obj\Debug\net7.0\GameLib.csproj.CoreCompileInputs.cache
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\GameLib\obj\Debug\net7.0\GameLib.dll
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\GameLib\obj\Debug\net7.0\refint\GameLib.dll
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\GameLib\obj\Debug\net7.0\GameLib.pdb
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\GameLib\obj\Debug\net7.0\ref\GameLib.dll

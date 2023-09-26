@@ -15,17 +15,14 @@
           "DesktopUI.dll": {}
         }
       },
-      "FormsLib/1.0.0": {
-        "dependencies": {
-          "GameLib": "1.0.0"
-        },
+      "AuthenticationLib/1.0.0": {
         "runtime": {
-          "FormsLib.dll": {}
+          "AuthenticationLib.dll": {}
         }
       },
-      "GameLib/1.0.0": {
+      "FormsLib/1.0.0": {
         "runtime": {
-          "GameLib.dll": {}
+          "FormsLib.dll": {}
         }
       }
     }
@@ -36,12 +33,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "FormsLib/1.0.0": {
+    "AuthenticationLib/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "GameLib/1.0.0": {
+    "FormsLib/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
