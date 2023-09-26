@@ -1,26 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
-
-using System.Windows.Forms;
-using Helpers;
+﻿using System.Data;
 using Chess.Pieces;
-using FormsLib.Chess;
+using Helpers;
 
 namespace FormsLib.Chess;
 
 public partial class formBoard : Form
 {
-    public List<Square> Squares { get; set; } = new();
+    public static List<Square> Squares { get; set; } = new();
 
-    public List<Piece> WhitePieces { get; set; } = new();
-    public List<Piece> BlackPieces { get; set; } = new();
+    public static List<Piece> WhitePieces { get; set; } = new();
+    public static List<Piece> BlackPieces { get; set; } = new();
 
     public FlowLayoutPanel Board { get; set; } = new();
 
@@ -29,6 +18,12 @@ public partial class formBoard : Form
     private static List<int> BishopStartNumbers = new() { 3, 6 };
     private static List<int> HorseStartNumbers = new() { 2, 7 };
     private static List<int> RoyaltyStartNumbers = new() { 4, 5 };
+
+    public static void Draw()
+    {
+        foreach (var piece in WhitePieces.Concat(BlackPieces))
+            piece.ShowImage((piece, square) => piece.Notation == square.Notation);
+    }
 
     public formBoard()
     {
@@ -49,35 +44,16 @@ public partial class formBoard : Form
 
         AddPieces();
 
-        ChessHelper.Squares = Squares;
-
-        // Squares.ForEach(x => x.AddText(x.Notation.ToString()));
-
-        WhitePieces[12].ShowImage((x, y) => x.Notation == y.Notation);
-
-        foreach (var piece in WhitePieces.Concat(BlackPieces))
-        {
-            piece.ShowImage((piece, square) => piece.Notation == square.Notation);
-        }
-
-
+        Draw();
 
 
     }
 
-    public void AddSquares()
-    {
-        // Create 64 squares
+    public void AddSquares() =>
         Squares = Enumerable.Range(1, 8)
             .SelectMany(x => Enumerable.Range(1, 8), (x, y) =>
                 new Square(x, y, Board))
             .ToList();
-
-        // Print coords 
-        // Squares.ForEach(x => x.AddText());
-
-
-    }
 
     public void AddPieces()
     {

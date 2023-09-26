@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace FormsLib.Menus
+﻿namespace FormsLib.Menus
 {
     public partial class MenuHolder : Form
     {
@@ -22,7 +12,7 @@ namespace FormsLib.Menus
 
         public void OpenChildForm(Form childForm)
         {
-            if(activeForm != null) activeForm.Close();
+            if (activeForm != null) activeForm.Close();
 
             activeForm = childForm;
             activeForm.TopLevel = false;

@@ -1,5 +1,4 @@
-﻿using UserDetails;
-namespace AuthenticationLib.Login;
+﻿namespace AuthenticationLib.Login;
 
 
 public static class LoginManager
@@ -11,7 +10,7 @@ public static class LoginManager
        .FirstOrDefault()?
        .SetCurrentUser();
 
-        
+
     public static User? CurrentUser { get; private set; } = null;
     public static void Logout(this User _) => CurrentUser = null;
     private static void SetCurrentUser(this User user) => CurrentUser = user;

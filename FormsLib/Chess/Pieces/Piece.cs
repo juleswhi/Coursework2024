@@ -3,6 +3,11 @@ namespace Chess.Pieces;
 
 public class Piece
 {
+    public PieceType Type { get; set; }
+    public PieceColour Colour { get; set; }
+    public Notation Notation { get; set; }
+    public Image Image { get; set; }
+
     public Piece(PieceType Type, PieceColour? Colour = null)
     {
         this.Type = Type;
@@ -22,11 +27,6 @@ public class Piece
 
     private void GetCorrectImage() => Image = Image.FromFile($"{ChessHelper.ImageDirectory}{Colour}{Type}.png");
 
-
-    public PieceType Type { get; set; }
-    public PieceColour Colour { get; set; }
-    public Notation Notation { get; set; }
-    public Image Image { get; set; }
 
 
 }

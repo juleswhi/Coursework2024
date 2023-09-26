@@ -13,7 +13,7 @@ public class Name
     }
     public Name(string Forname, string Surname, int Number)
     {
-        
+
         this.Forname = Forname;
         this.Surname = Surname;
         this.Username = $"{Forname[0]}{Surname}{Number}";

@@ -17,11 +17,12 @@ public static class Serializer
 
         catch (FileNotFoundException) { return Code.FileNotFound; }
         return Code.Ok;
-    } 
+    }
 
     public static List<T> Deserialize<T>(this List<T> _, string filepath)
     {
-        try { 
+        try
+        {
             using (FileStream fs = new FileStream(filepath, FileMode.Open))
             {
                 DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<T>));
@@ -30,7 +31,7 @@ public static class Serializer
             }
         }
 
-        catch(FileNotFoundException) { }
+        catch (FileNotFoundException) { }
 
         return new();
     }

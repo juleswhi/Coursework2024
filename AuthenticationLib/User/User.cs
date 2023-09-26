@@ -11,7 +11,7 @@ public class User : IUser, IEquatable<User>
 
     public User(AuthDetails AuthDetails, Name? Name = null)
     {
-        this.Name = Name; 
+        this.Name = Name;
         this.AuthDetails = AuthDetails;
     }
 
@@ -27,7 +27,7 @@ public class User : IUser, IEquatable<User>
     // If Login.CurrentUser is null, create a new user ( which will return false )
     // If it is the same, return true, else false
 
-    public bool IsLoggedIn => ( LoginManager.CurrentUser ?? new User() ) == this ? true : false;
+    public bool IsLoggedIn => (LoginManager.CurrentUser ?? new User()) == this ? true : false;
 
 
     // IEquatable<> Overrides
@@ -38,7 +38,7 @@ public class User : IUser, IEquatable<User>
     public static bool operator !=(User a, User b) => !(a.Name?.Username == b.Name?.Username);
 
     // ToString override
-    public override string ToString() => 
+    public override string ToString() =>
         $"{this.Name!.Forname},{this.Name!.Surname},{this.Name!.Username},{this.AuthLevel.ToString()},{this.AuthDetails.Password}";
 
 }

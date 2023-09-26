@@ -19,7 +19,7 @@ public struct Notation : IEquatable<Notation>
 
     public (char, int) Number => (File, Rank);
 
-    public bool Equals(Notation other)  => this.ToString() == other.ToString();
+    public bool Equals(Notation other) => this.ToString() == other.ToString();
     public static bool operator ==(Notation one, Notation two) => one.Equals(two);
     public static bool operator !=(Notation one, Notation two) => !one.Equals(two);
 
