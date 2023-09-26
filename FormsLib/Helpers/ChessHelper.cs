@@ -33,7 +33,6 @@ public static class ChessHelper
             if(IsRightSquare(piece, i)) CorrectSquare = i;
         }
 
-
     }
 
 }
