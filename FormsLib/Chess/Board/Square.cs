@@ -5,7 +5,6 @@ namespace FormsLib.Chess;
 public class Square : Panel
 {
 
-    public Label Label = new Label();
     public Square(int i, int j, FlowLayoutPanel flp)
     {
         SquareNumber = i + j;
@@ -31,9 +30,6 @@ public class Square : Panel
         var pad = new Padding(0, 0, 0, 0);
         Padding = pad;
         Margin = pad;
-
-
-        this.Controls.Add(Label);
     }
 
     public const int SIZE = 50;
@@ -46,10 +42,19 @@ public class Square : Panel
     private Color BlackColour = Color.FromArgb(67, 83, 52);
 
     // Label the squares
-    public void AddText()
+    public void AddControl(string txt)
     {
         Label label = new Label();
-        label.Text = Notation.ToString();
+        label.Text = txt;
+        Controls.Add(label);
+    }
+
+    public void AddControl(Image img)
+    {
+        Label label = new Label();
+        label.Dock = DockStyle.Fill;
+        label.Image = img;
+        label.ImageAlign = ContentAlignment.BottomLeft;
         Controls.Add(label);
     }
 

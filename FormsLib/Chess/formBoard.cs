@@ -47,7 +47,22 @@ public partial class formBoard : Form
 
         flowLayoutPanel1.Controls.Add(Board);
 
-        GetImages();
+        AddPieces();
+
+        ChessHelper.Squares = Squares;
+
+        // Squares.ForEach(x => x.AddText(x.Notation.ToString()));
+
+        WhitePieces[12].ShowImage((x, y) => x.Notation == y.Notation);
+
+        foreach (var piece in WhitePieces.Concat(BlackPieces))
+        {
+            piece.ShowImage((piece, square) => piece.Notation == square.Notation);
+        }
+
+
+
+
     }
 
     public void AddSquares()
@@ -59,13 +74,13 @@ public partial class formBoard : Form
             .ToList();
 
         // Print coords 
-        Squares.ForEach(x => x.AddText());
+        // Squares.ForEach(x => x.AddText());
+
+
     }
 
     public void AddPieces()
     {
-        // So much code oml
-
         // 8 Pawns
         WhitePieces.AddRange(Enumerable.Range(1, 8)
             .Select(x =>
@@ -80,11 +95,11 @@ public partial class formBoard : Form
         // Two Knights
 
 
-        WhitePieces.AddRange(Enumerable.Range(1, 2)
+        WhitePieces.AddRange(Enumerable.Range(0, 2)
             .Select(x =>
             new Piece((PieceType)2, new Notation(HorseStartNumbers[x], 1))).ToList());
 
-        BlackPieces.AddRange(Enumerable.Range(1, 8)
+        BlackPieces.AddRange(Enumerable.Range(0, 2)
             .Select(x =>
             new Piece((PieceType)2, new Notation(HorseStartNumbers[x], 8))).ToList());
 
@@ -92,35 +107,35 @@ public partial class formBoard : Form
         // Two Bishops
 
 
-        WhitePieces.AddRange(Enumerable.Range(1, 2)
+        WhitePieces.AddRange(Enumerable.Range(0, 2)
             .Select(x =>
                 new Piece((PieceType)3, new Notation(BishopStartNumbers[x], 1))).ToList());
 
-        BlackPieces.AddRange(Enumerable.Range(1, 2)
+        BlackPieces.AddRange(Enumerable.Range(0, 2)
             .Select(x =>
                 new Piece((PieceType)3, new Notation(BishopStartNumbers[x], 8))).ToList());
 
         // Two Rooks
 
 
-        WhitePieces.AddRange(Enumerable.Range(1, 2)
+        WhitePieces.AddRange(Enumerable.Range(0, 2)
             .Select(x =>
                 new Piece((PieceType)4, new Notation(RookStartNumbers[x], 1))).ToList());
 
-        BlackPieces.AddRange(Enumerable.Range(1, 2)
+        BlackPieces.AddRange(Enumerable.Range(0, 2)
             .Select(x =>
                 new Piece((PieceType)4, new Notation(RookStartNumbers[x], 8))).ToList());
 
         // One King and One Queen
 
 
-        WhitePieces.AddRange(Enumerable.Range(1, 2)
+        WhitePieces.AddRange(Enumerable.Range(0, 2)
             .Select(x =>
-                new Piece((PieceType)(x + 4), new Notation(RoyaltyStartNumbers[x], 1))).ToList());
+                new Piece((PieceType)(x + 5), new Notation(RoyaltyStartNumbers[x], 1))).ToList());
 
-        BlackPieces.AddRange(Enumerable.Range(1, 2)
+        BlackPieces.AddRange(Enumerable.Range(0, 2)
             .Select(x =>
-                new Piece((PieceType)(x + 4), new Notation(RoyaltyStartNumbers[x], 8))).ToList());
+                new Piece((PieceType)(x + 5), new Notation(RoyaltyStartNumbers[x], 8))).ToList());
 
 
         // Give each piece a Colour
@@ -129,39 +144,4 @@ public partial class formBoard : Form
         BlackPieces.ForEach(x => x.Colour = PieceColour.Black);
     }
 
-
-    private void GetImages()
-    {
-        for(int i = 0; i < WhitePieces.Count; i++)
-        {
-            Image img = GetPieceImages($"{(PieceColour)1}{(PieceType)i}");
-            Label PieceImageLabel = new();
-            PieceImageLabel.Image = img;
-            Squares.Where(x =>
-                IsSameNotation(x.Notation))
-            .ToList()
-            .ForEach((x) =>
-            {
-                // Pawns
-                PieceImageLabel.Show();
-                if (x.Notation.Rank == 2)
-                {
-                    x.Controls.Add(PieceImageLabel);
-                }
-                // else if(x.Notation.Notation == new Notation())
-            });
-        }
-
-    }
-
-    private bool IsSameNotation(Notation notation1)
-    {
-        foreach(var i in WhitePieces)
-            if (i.Notation == notation1) return true;
-        foreach(var i in BlackPieces)
-            if (i.Notation == notation1) return true;
-        return false;
-    }
-
-    private Image GetPieceImages(string ImageName) => Image.FromFile($"{ChessHelper.ImageDirectory}{ImageName}.png");
 }

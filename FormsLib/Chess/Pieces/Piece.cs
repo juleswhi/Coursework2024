@@ -17,6 +17,7 @@ public class Piece
         this.Notation = Notation;
         if (Colour == null) return;
         this.Colour = (PieceColour)Colour;
+        GetCorrectImage();
     }
 
     private void GetCorrectImage() => Image = Image.FromFile($"{ChessHelper.ImageDirectory}{Colour}{Type}.png");

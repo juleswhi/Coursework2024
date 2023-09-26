@@ -18,8 +18,6 @@ C:\Users\elliot alderson\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.pdb
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.genruntimeconfig.cache
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\ref\DesktopUI.dll
-C:\Users\elliot alderson\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\GameLib.dll
-C:\Users\elliot alderson\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\GameLib.pdb
 C:\Users\i hate windows\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.dll
 C:\Users\i hate windows\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\refint\DesktopUI.dll
 C:\Users\i hate windows\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.pdb
@@ -42,3 +40,5 @@ C:\Users\i hate windows\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7
 C:\Users\i hate windows\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.csproj.CopyComplete
 C:\Users\i hate windows\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.genruntimeconfig.cache
 C:\Users\i hate windows\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\ref\DesktopUI.dll
+C:\Users\elliot alderson\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\AuthenticationLib.dll
+C:\Users\elliot alderson\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\AuthenticationLib.pdb

@@ -34,10 +34,10 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Anchor = AnchorStyles.None;
-            flowLayoutPanel1.Location = new Point(178, 12);
+            flowLayoutPanel1.Location = new Point(169, 9);
             flowLayoutPanel1.Margin = new Padding(0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(400, 400);
+            flowLayoutPanel1.Size = new Size(600, 600);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // formBoard
@@ -45,7 +45,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Moccasin;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(938, 627);
             Controls.Add(flowLayoutPanel1);
             Name = "formBoard";
             Text = "formBoard";

@@ -2,7 +2,6 @@ C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\bin\Debug\net7
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\bin\Debug\net7.0-windows\FormsLib.dll
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\bin\Debug\net7.0-windows\FormsLib.pdb
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.csproj.AssemblyReference.cache
-C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.Chess.formBoard.resources
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.Menus.LoginMenu.resources
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.csproj.GenerateResource.cache
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.GeneratedMSBuildEditorConfig.editorconfig
@@ -15,9 +14,6 @@ C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\ref\FormsLib.dll
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.Menus.MainMenu.resources
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.Menus.MenuHolder.resources
-C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\bin\Debug\net7.0-windows\GameLib.dll
-C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\bin\Debug\net7.0-windows\GameLib.pdb
-C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.csproj.CopyComplete
 C:\Users\i hate windows\Documents\GitHub\Coursework2024\FormsLib\bin\Debug\net7.0-windows\FormsLib.deps.json
 C:\Users\i hate windows\Documents\GitHub\Coursework2024\FormsLib\bin\Debug\net7.0-windows\FormsLib.dll
 C:\Users\i hate windows\Documents\GitHub\Coursework2024\FormsLib\bin\Debug\net7.0-windows\FormsLib.pdb
@@ -33,3 +29,4 @@ C:\Users\i hate windows\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.
 C:\Users\i hate windows\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\refint\FormsLib.dll
 C:\Users\i hate windows\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.pdb
 C:\Users\i hate windows\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\ref\FormsLib.dll
+C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.Chess.formBoard.resources
