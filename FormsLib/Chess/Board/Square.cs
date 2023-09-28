@@ -73,22 +73,61 @@ public class Square : Panel
         {
             if (sender is not Label) return;
             CurrentlySelectedPiece = this.PieceFromSquare()!;
+
+            if (CurrentlySelectedPiece.Colour != formBoard.ColourToMove)
+            {
+                CurrentlySelectedPiece = null;
+                return;
+            }
+
             SquareSelectedNormalColor = !SquareSelectedNormalColor;
             BackColor = SquareSelectedNormalColor ? (SquareNumber % 2 == 0 ? BlackColour : WhiteColour) : Color.Blue;
+
+            return;
         }
 
+        Square MoveFromSquare = CurrentlySelectedPiece.SquareFromPiece();
 
-        if (sender is Label) { }
+        if (sender is Label)
+        {
+            Piece SelectedPiece = this.PieceFromSquare();
+            SelectedPiece.TakePiece();
+            CurrentlySelectedPiece!.Move(this.Notation);
+            RemoveColours();
+            // CurrentlySelectedPiece = null;
+            formBoard.ColourToMove = formBoard.ColourToMove == PieceColour.White ? PieceColour.Black : PieceColour.White;
+            MoveFromSquare.Controls.Clear();
+            formBoard.Draw();
+            this.BackColor = Color.Green;
+
+            var moves = CurrentlySelectedPiece.GetMoves();
+
+            foreach(var i in moves)
+            {
+                var square = i.SquareFromNotation();
+                square.BackColor = Color.Chartreuse;
+            }
+
+            CurrentlySelectedPiece = null;
+
+            /*
+            MoveFromSquare.Controls.Clear();
+            CurrentlySelectedPiece.Move(this.Notation);
+            this.BackColor = Color.Green;
+            CurrentlySelectedPiece = null;
+            formBoard.ColourToMove = formBoard.ColourToMove == PieceColour.White ? PieceColour.Black : PieceColour.White;
+            formBoard.Draw();
+            */
+        }
         else
         {
-            Square MoveFromSquare = CurrentlySelectedPiece.SquareFromPiece();
-
-
-            MoveFromSquare.Controls.Clear(); 
+            MoveFromSquare.Controls.Clear();
             CurrentlySelectedPiece!.Move(this.Notation);
 
             RemoveColours();
+            this.BackColor = Color.Green;
             CurrentlySelectedPiece = null;
+            formBoard.ColourToMove = formBoard.ColourToMove == PieceColour.White ? PieceColour.Black : PieceColour.White;
         }
     }
 

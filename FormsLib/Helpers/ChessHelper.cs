@@ -88,4 +88,54 @@ public static class ChessHelper
             if (square.Notation == piece.Notation) return piece;
         return null;
     }
+
+    public static void TakePiece(this Piece piece)
+    {
+        // Remove from list
+        // remove sprite
+
+        if (piece.Colour == PieceColour.White)
+        {
+            foreach (var peeece in formBoard.WhitePieces.Where(x => x.Notation == piece.Notation))
+            {
+                formBoard.WhitePieces.Remove(peeece);
+                break;
+            }
+        }
+        else foreach (var peeece in formBoard.BlackPieces.Where(x => x.Notation == piece.Notation))
+        {
+            formBoard.BlackPieces.Remove(peeece);
+                break;
+        }
+
+        Square square = piece.SquareFromPiece();
+
+        square.Controls.Clear();
+
+
+
+        formBoard.Draw();
+    }
+
+    public static List<Notation> GetMoves(this Piece piece)
+    {
+        var moves = new List<Notation>();
+
+        foreach(var square in formBoard.Squares)
+        {
+            moves.Add(square.Notation);
+            moves.Add(new Notation(square.Notation.Rank, square.Notation.File + 1));
+        }
+
+        return moves;
+    }
+
+    public static Square SquareFromNotation(this Notation notation)
+    {
+        foreach(var square in formBoard.Squares)
+        {
+            if (square.Notation == notation) return square;
+        }
+        return null;
+    }
 }

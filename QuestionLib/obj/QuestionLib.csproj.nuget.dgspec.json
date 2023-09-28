@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\QuestionLib\\QuestionLib.csproj": {}
+    "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\QuestionLib\\QuestionLib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\QuestionLib\\QuestionLib.csproj": {
+    "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\QuestionLib\\QuestionLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\QuestionLib\\QuestionLib.csproj",
+        "projectUniqueName": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\QuestionLib\\QuestionLib.csproj",
         "projectName": "QuestionLib",
-        "projectPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\QuestionLib\\QuestionLib.csproj",
-        "packagesPath": "C:\\Users\\elliot alderson\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\elliot alderson\\Documents\\GitHub\\Coursework2024\\QuestionLib\\obj\\",
+        "projectPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\QuestionLib\\QuestionLib.csproj",
+        "packagesPath": "C:\\Users\\i hate windows\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\QuestionLib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\elliot alderson\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\i hate windows\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
