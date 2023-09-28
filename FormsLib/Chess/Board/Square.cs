@@ -80,6 +80,14 @@ public class Square : Panel
                 return;
             }
 
+            var pieceMoves = CurrentlySelectedPiece.GetMoves(); 
+
+            foreach(var i in pieceMoves)
+            {
+                var square = i.SquareFromNotation();
+                square.BackColor = Color.Orange;
+            }
+
             SquareSelectedNormalColor = !SquareSelectedNormalColor;
             BackColor = SquareSelectedNormalColor ? (SquareNumber % 2 == 0 ? BlackColour : WhiteColour) : Color.Blue;
 
@@ -88,40 +96,56 @@ public class Square : Panel
 
         Square MoveFromSquare = CurrentlySelectedPiece.SquareFromPiece();
 
+        var moves = CurrentlySelectedPiece.GetMoves();
+        foreach (var i in moves)
+        {
+            var square = i.SquareFromNotation();
+            square.BackColor = Color.Orange;
+        }
+
+
+
+
+        // if clicked on piece
         if (sender is Label)
         {
+            
             Piece SelectedPiece = this.PieceFromSquare();
+            // If clicked on self, remove click effect
+            if(CurrentlySelectedPiece.Notation == this.Notation)
+            {
+                CurrentlySelectedPiece = null;
+                RemoveColours();
+                return;
+            }
+
+            // If move isnt a move return
+            if (!moves.Contains(this.Notation)) return;
+
+
+            // Take sender
             SelectedPiece.TakePiece();
+            // Move the actual piece
             CurrentlySelectedPiece!.Move(this.Notation);
             RemoveColours();
             // CurrentlySelectedPiece = null;
             formBoard.ColourToMove = formBoard.ColourToMove == PieceColour.White ? PieceColour.Black : PieceColour.White;
+            // Remove all the leftover sprites
             MoveFromSquare.Controls.Clear();
+            // Draw new sprites
             formBoard.Draw();
+            // Highlight new piece move
             this.BackColor = Color.Green;
-
-            var moves = CurrentlySelectedPiece.GetMoves();
-
-            foreach(var i in moves)
-            {
-                var square = i.SquareFromNotation();
-                square.BackColor = Color.Chartreuse;
-            }
 
             CurrentlySelectedPiece = null;
 
-            /*
-            MoveFromSquare.Controls.Clear();
-            CurrentlySelectedPiece.Move(this.Notation);
-            this.BackColor = Color.Green;
-            CurrentlySelectedPiece = null;
-            formBoard.ColourToMove = formBoard.ColourToMove == PieceColour.White ? PieceColour.Black : PieceColour.White;
-            formBoard.Draw();
-            */
         }
         else
         {
+            if (!moves.Contains(this.Notation)) return;
+            // Remove artifacts
             MoveFromSquare.Controls.Clear();
+            // Move the piece
             CurrentlySelectedPiece!.Move(this.Notation);
 
             RemoveColours();
