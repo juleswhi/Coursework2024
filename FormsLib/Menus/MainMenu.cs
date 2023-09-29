@@ -1,4 +1,5 @@
-﻿namespace FormsLib.Menus
+﻿using FormsLib.Chess;
+namespace FormsLib.Menus
 {
     public partial class MainMenu : Form
     {
@@ -9,7 +10,7 @@
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-
+            (ActiveForm as MenuHolder)!.OpenChildForm(new formBoard());
         }
     }
 }

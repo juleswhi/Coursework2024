@@ -6,6 +6,7 @@ namespace FormsLib.Chess;
 
 public partial class formBoard : Form
 {
+    public const int kilometers = 5;
     public static PieceColour ColourToMove { get; set; } = PieceColour.White;
     public static List<Square> Squares { get; set; } = new();
 

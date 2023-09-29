@@ -137,6 +137,7 @@ public static class ChessHelper
 
         if (piece.Type == PieceType.Pawn)
             moves.AddRange(piece.GetPawnAttacks(enemyPieces));
+
         else if (piece.Type == PieceType.Bishop)
             moves.AddRange(piece.GetBishopAttacks(enemyPieces));
 
@@ -151,11 +152,8 @@ public static class ChessHelper
 
         else if (piece.Type == PieceType.King)
             moves.AddRange(piece.GetKingAttacks(enemyPieces));
-
-
         
         Square square = piece.SquareFromPiece();
-
 
         moves.ForEach(x => x.Floor());
 
@@ -189,6 +187,7 @@ public static class ChessHelper
         return notation;
     }
 
+
     public static int Floor(this int num)
     {
         if (num > 8) num = 8;
@@ -207,7 +206,7 @@ public static class ChessHelper
         int[] deltaRanks = { forwardDirection, forwardDirection * 2 };
         int[] deltaFiles = { 0, -1, 1 };
 
-        // Foward or passanted
+        // Foward or doubleMove
         foreach(var deltaRank in deltaRanks)
         {
             int newRank = rank + deltaRank;
@@ -221,12 +220,12 @@ public static class ChessHelper
                     moves.Add(newPosition);
                     if(deltaRank == forwardDirection && (piece.Colour == PieceColour.White && rank == 2 || piece.Colour == PieceColour.Black && rank == 7))
                     {
-                        int passantMoveRank = rank + forwardDirection * 2;
-                        var passantMovePosition = new Notation(file, passantMoveRank);
+                        int twoMoverank = rank + forwardDirection * 2;
+                        var towMoveLocation = new Notation(file, twoMoverank);
 
-                        var pieceAtPassant = formBoard.WhitePieces.Concat(formBoard.BlackPieces).FirstOrDefault(piece => piece.Notation == passantMovePosition);
+                        var piceAtTwoMove = formBoard.WhitePieces.Concat(formBoard.BlackPieces).FirstOrDefault(piece => piece.Notation == towMoveLocation);
 
-                        if (pieceAtPassant == null) moves.Add(passantMovePosition);
+                        if (piceAtTwoMove == null) moves.Add(towMoveLocation);
                     }
                 }
             }

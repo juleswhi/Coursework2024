@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             panelButtonBar = new Panel();
-            btnPlay = new Button();
             h = new Button();
+            btnPlay = new Button();
             panelButtonBar.SuspendLayout();
             SuspendLayout();
             // 
@@ -44,28 +44,12 @@
             panelButtonBar.Size = new Size(200, 451);
             panelButtonBar.TabIndex = 0;
             // 
-            // btnPlay
-            // 
-            btnPlay.BackColor = Color.FromArgb(158, 179, 132);
-            btnPlay.Dock = DockStyle.Top;
-            btnPlay.FlatStyle = FlatStyle.Flat;
-            btnPlay.Font = new Font("Hack Nerd Font", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPlay.ForeColor = Color.FromArgb(64, 64, 64);
-            btnPlay.Location = new Point(0, 0);
-            btnPlay.Margin = new Padding(20);
-            btnPlay.Name = "btnPlay";
-            btnPlay.Size = new Size(200, 84);
-            btnPlay.TabIndex = 0;
-            btnPlay.Text = "Start Quiz!";
-            btnPlay.UseVisualStyleBackColor = false;
-            btnPlay.Click += btnPlay_Click;
-            // 
             // h
             // 
             h.BackColor = Color.FromArgb(158, 179, 132);
             h.Dock = DockStyle.Top;
             h.FlatStyle = FlatStyle.Flat;
-            h.Font = new Font("Hack Nerd Font", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            h.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
             h.ForeColor = Color.FromArgb(64, 64, 64);
             h.Location = new Point(0, 84);
             h.Margin = new Padding(20);
@@ -74,6 +58,22 @@
             h.TabIndex = 1;
             h.Text = "Settings";
             h.UseVisualStyleBackColor = false;
+            // 
+            // btnPlay
+            // 
+            btnPlay.BackColor = Color.FromArgb(158, 179, 132);
+            btnPlay.Dock = DockStyle.Top;
+            btnPlay.FlatStyle = FlatStyle.Flat;
+            btnPlay.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btnPlay.ForeColor = Color.FromArgb(64, 64, 64);
+            btnPlay.Location = new Point(0, 0);
+            btnPlay.Margin = new Padding(20);
+            btnPlay.Name = "btnPlay";
+            btnPlay.Size = new Size(200, 84);
+            btnPlay.TabIndex = 0;
+            btnPlay.Text = "Play Chess!";
+            btnPlay.UseVisualStyleBackColor = false;
+            btnPlay.Click += btnPlay_Click;
             // 
             // MainMenu
             // 
