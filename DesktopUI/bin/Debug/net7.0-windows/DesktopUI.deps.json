@@ -21,6 +21,9 @@
         }
       },
       "FormsLib/1.0.0": {
+        "dependencies": {
+          "AuthenticationLib": "1.0.0"
+        },
         "runtime": {
           "FormsLib.dll": {}
         }

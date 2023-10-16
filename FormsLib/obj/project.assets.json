@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net7.0-windows7.0": {}
+    "net7.0-windows7.0": {
+      "AuthenticationLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/AuthenticationLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AuthenticationLib.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "AuthenticationLib/1.0.0": {
+      "type": "project",
+      "path": "../AuthenticationLib/AuthenticationLib.csproj",
+      "msbuildProject": "../AuthenticationLib/AuthenticationLib.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0-windows7.0": []
+    "net7.0-windows7.0": [
+      "AuthenticationLib >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\i hate windows\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj": {
+              "projectPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

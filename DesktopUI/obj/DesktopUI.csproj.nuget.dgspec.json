@@ -147,7 +147,11 @@
         "frameworks": {
           "net7.0-windows7.0": {
             "targetAlias": "net7.0-windows",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj": {
+                "projectPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

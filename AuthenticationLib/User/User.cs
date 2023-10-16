@@ -7,7 +7,7 @@ namespace UserDetails;
 public class User : IUser, IEquatable<User>
 {
 
-    public static List<User> Users { get; set; } = Users?.Deserialize(FilepathManager.UserDetails)!;
+    public static List<User> Users { get; set; } = Users?.Deserialize(FilepathManager.UserDetails) ?? new();
 
     public User(AuthDetails AuthDetails, Name? Name = null)
     {

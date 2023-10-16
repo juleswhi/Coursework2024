@@ -31,3 +31,7 @@ C:\Users\i hate windows\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.
 C:\Users\i hate windows\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\ref\FormsLib.dll
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.Chess.formBoard.resources
 C:\Users\i hate windows\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.Chess.formBoard.resources
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\FormsLib\bin\Debug\net7.0-windows\AuthenticationLib.dll
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\FormsLib\bin\Debug\net7.0-windows\AuthenticationLib.pdb
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.csproj.AssemblyReference.cache
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.csproj.CopyComplete
