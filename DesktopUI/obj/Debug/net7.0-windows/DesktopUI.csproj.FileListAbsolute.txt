@@ -42,3 +42,25 @@ C:\Users\i hate windows\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7
 C:\Users\i hate windows\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\ref\DesktopUI.dll
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\AuthenticationLib.dll
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\AuthenticationLib.pdb
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\DesktopUI.exe
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\DesktopUI.deps.json
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\DesktopUI.runtimeconfig.json
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\DesktopUI.dll
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\DesktopUI.pdb
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\AuthenticationLib.dll
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\FormsLib.dll
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\FormsLib.pdb
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\AuthenticationLib.pdb
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.csproj.AssemblyReference.cache
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.Forms.PlayMenu.resources
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.csproj.GenerateResource.cache
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.AssemblyInfoInputs.cache
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.AssemblyInfo.cs
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.csproj.CoreCompileInputs.cache
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.csproj.CopyComplete
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.dll
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\refint\DesktopUI.dll
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.pdb
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.genruntimeconfig.cache
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\ref\DesktopUI.dll

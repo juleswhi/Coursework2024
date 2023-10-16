@@ -33,3 +33,14 @@ C:\Users\elliot alderson\Documents\GitHub\Coursework2024\AuthenticationLib\obj\D
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\AuthenticationLib\obj\Debug\net7.0\refint\AuthenticationLib.dll
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\AuthenticationLib\obj\Debug\net7.0\AuthenticationLib.pdb
 C:\Users\elliot alderson\Documents\GitHub\Coursework2024\AuthenticationLib\obj\Debug\net7.0\ref\AuthenticationLib.dll
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\AuthenticationLib\bin\Debug\net7.0\AuthenticationLib.deps.json
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\AuthenticationLib\bin\Debug\net7.0\AuthenticationLib.dll
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\AuthenticationLib\bin\Debug\net7.0\AuthenticationLib.pdb
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\AuthenticationLib\obj\Debug\net7.0\AuthenticationLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\AuthenticationLib\obj\Debug\net7.0\AuthenticationLib.AssemblyInfoInputs.cache
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\AuthenticationLib\obj\Debug\net7.0\AuthenticationLib.AssemblyInfo.cs
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\AuthenticationLib\obj\Debug\net7.0\AuthenticationLib.csproj.CoreCompileInputs.cache
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\AuthenticationLib\obj\Debug\net7.0\AuthenticationLib.dll
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\AuthenticationLib\obj\Debug\net7.0\refint\AuthenticationLib.dll
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\AuthenticationLib\obj\Debug\net7.0\AuthenticationLib.pdb
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\AuthenticationLib\obj\Debug\net7.0\ref\AuthenticationLib.dll

@@ -1,4 +1,5 @@
-﻿using AuthenticationLib.Login;
+﻿using Serialization;
+using AuthenticationLib.Login;
 using Filepaths;
 
 namespace UserDetails;
@@ -7,7 +8,19 @@ namespace UserDetails;
 public class User : IUser, IEquatable<User>
 {
 
-    public static List<User> Users { get; set; } = Users?.Deserialize(FilepathManager.UserDetails) ?? new();
+    public static List<User> Users
+    {
+        get
+        {
+            return new List<User>().Deserialize(FilepathManager.UserDetails);
+        }
+        set
+        {
+            Users = value;
+        }
+    }
+
+
 
     public User(AuthDetails AuthDetails, Name? Name = null)
     {
@@ -42,3 +55,4 @@ public class User : IUser, IEquatable<User>
         $"{this.Name!.Forname},{this.Name!.Surname},{this.Name!.Username},{this.AuthLevel.ToString()},{this.AuthDetails.Password}";
 
 }
+

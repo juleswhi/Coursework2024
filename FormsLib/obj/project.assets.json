@@ -27,19 +27,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\i hate windows\\.nuget\\packages\\": {}
+    "C:\\Users\\ayo mr white\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj",
+      "projectUniqueName": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj",
       "projectName": "FormsLib",
-      "projectPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj",
-      "packagesPath": "C:\\Users\\i hate windows\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\FormsLib\\obj\\",
+      "projectPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj",
+      "packagesPath": "C:\\Users\\ayo mr white\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\FormsLib\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\i hate windows\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ayo mr white\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -53,8 +53,8 @@
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
           "projectReferences": {
-            "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj": {
-              "projectPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj"
+            "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj": {
+              "projectPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj"
             }
           }
         }
@@ -87,7 +87,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
