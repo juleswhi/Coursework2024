@@ -32,27 +32,28 @@
             txtBoxUsername = new TextBox();
             txtBoxPassword = new TextBox();
             btnLogin = new Button();
+            lblUsernameError = new Label();
             SuspendLayout();
             // 
             // lblLogin
             // 
             lblLogin.Anchor = AnchorStyles.None;
             lblLogin.AutoSize = true;
-            lblLogin.Font = new Font("Hack Nerd Font", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            lblLogin.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
             lblLogin.ForeColor = Color.FromArgb(64, 64, 64);
             lblLogin.Location = new Point(116, 120);
             lblLogin.Name = "lblLogin";
-            lblLogin.Size = new Size(112, 38);
+            lblLogin.Size = new Size(96, 37);
             lblLogin.TabIndex = 0;
             lblLogin.Text = "Login";
             // 
             // txtBoxUsername
             // 
             txtBoxUsername.Anchor = AnchorStyles.None;
-            txtBoxUsername.Font = new Font("Hack Nerd Font", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtBoxUsername.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtBoxUsername.Location = new Point(116, 172);
             txtBoxUsername.Name = "txtBoxUsername";
-            txtBoxUsername.Size = new Size(114, 23);
+            txtBoxUsername.Size = new Size(114, 22);
             txtBoxUsername.TabIndex = 1;
             // 
             // txtBoxPassword
@@ -60,10 +61,10 @@
             txtBoxPassword.AcceptsReturn = true;
             txtBoxPassword.AcceptsTab = true;
             txtBoxPassword.Anchor = AnchorStyles.None;
-            txtBoxPassword.Font = new Font("Hack Nerd Font", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txtBoxPassword.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txtBoxPassword.Location = new Point(116, 201);
             txtBoxPassword.Name = "txtBoxPassword";
-            txtBoxPassword.Size = new Size(114, 23);
+            txtBoxPassword.Size = new Size(114, 22);
             txtBoxPassword.TabIndex = 2;
             // 
             // btnLogin
@@ -77,12 +78,22 @@
             btnLogin.UseVisualStyleBackColor = true;
             btnLogin.Click += btnLogin_Click;
             // 
+            // lblUsernameError
+            // 
+            lblUsernameError.AutoSize = true;
+            lblUsernameError.ForeColor = SystemColors.MenuBar;
+            lblUsernameError.Location = new Point(95, 276);
+            lblUsernameError.Name = "lblUsernameError";
+            lblUsernameError.Size = new Size(0, 15);
+            lblUsernameError.TabIndex = 4;
+            // 
             // LoginMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(206, 222, 189);
             ClientSize = new Size(349, 450);
+            Controls.Add(lblUsernameError);
             Controls.Add(btnLogin);
             Controls.Add(txtBoxPassword);
             Controls.Add(txtBoxUsername);
@@ -99,5 +110,6 @@
         private TextBox txtBoxUsername;
         private TextBox txtBoxPassword;
         private Button btnLogin;
+        private Label lblUsernameError;
     }
 }

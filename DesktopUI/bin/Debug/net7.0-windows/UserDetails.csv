@@ -1,1 +1,25 @@
-[{"<AuthDetails>k__BackingField":{"Password":"e7cf3ef4f17c3999a94f2c6f612e8a888e5b1026878e4e19398b23bd38ec221a","Username":"admin"},"<Name>k__BackingField":null}]
+[
+    {
+        "<AuthDetails>k__BackingField": {
+            "Password": "78ae647dc5544d227130a0682a51e30bc7777fbb6d8a8f17007463a3ecd1d524",
+            "Username": "Hello"
+        },
+        "<Name>k__BackingField": {
+            "Forname": "James",
+            "Surname": "Bond",
+            "Username": "456"
+        }
+    },
+
+    {
+        "<AuthDetails>k__BackingField": {
+            "Password": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+            "Username": "admin"
+        },
+        "<Name>k__BackingField": {
+            "Forname": "admin",
+            "Surname": "admin",
+            "Username": "aadmin123"
+        }
+    }
+]

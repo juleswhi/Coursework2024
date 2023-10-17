@@ -20,6 +20,9 @@ public class User : IUser, IEquatable<User>
         }
     }
 
+    public DateTime DOB { get; set; }
+    public string Email { get; set; }
+
 
 
     public User(AuthDetails AuthDetails, Name? Name = null)
@@ -33,6 +36,7 @@ public class User : IUser, IEquatable<User>
     public AuthLevel AuthLevel => nameof(this.AuthLevel) == nameof(AuthLevel.User) ? AuthLevel.User : AuthLevel.Admin;
     public AuthDetails AuthDetails { get; set; }
     public Name? Name { get; set; }
+
 
 
     // This needs a comment lmao

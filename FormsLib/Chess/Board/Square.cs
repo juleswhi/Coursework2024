@@ -9,7 +9,6 @@ public class Square : Panel
     public int SquareNumber { get; set; }
     public Notation Notation { get; set; }
     private bool SquareSelectedNormalColor { get; set; } = true;
-
     public static Piece CurrentlySelectedPiece { get; set; } = null;
 
 
@@ -22,14 +21,12 @@ public class Square : Panel
         SetupSquare();
     }
 
-
     public Square(int SquareNumber, FlowLayoutPanel flp)
     {
         this.SquareNumber = SquareNumber;
         Parent = flp;
         SetupSquare();
     }
-
 
     public void SetupSquare()
     {

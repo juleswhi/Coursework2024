@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\ayo mr white\\.nuget\\packages\\": {}
+    "C:\\Users\\i hate windows\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\ConsoleUI\\ConsoleUI.csproj",
+      "projectUniqueName": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\ConsoleUI\\ConsoleUI.csproj",
       "projectName": "ConsoleUI",
-      "projectPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\ConsoleUI\\ConsoleUI.csproj",
-      "packagesPath": "C:\\Users\\ayo mr white\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\ConsoleUI\\obj\\",
+      "projectPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\ConsoleUI\\ConsoleUI.csproj",
+      "packagesPath": "C:\\Users\\i hate windows\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\ConsoleUI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ayo mr white\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\i hate windows\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
