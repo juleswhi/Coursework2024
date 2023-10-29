@@ -1,5 +1,4 @@
-﻿using Serialization;
-using AuthenticationLib.Login;
+﻿using AuthenticationLib.Login;
 using Filepaths;
 
 namespace UserDetails;
@@ -12,7 +11,7 @@ public class User : IUser, IEquatable<User>
     {
         get
         {
-            return new List<User>().Deserialize(FilepathManager.UserDetails);
+            return new User().Deserialize(FilepathManager.UserDetails);
         }
         set
         {
@@ -33,7 +32,7 @@ public class User : IUser, IEquatable<User>
 
     public User() { }
 
-    public AuthLevel AuthLevel => nameof(this.AuthLevel) == nameof(AuthLevel.User) ? AuthLevel.User : AuthLevel.Admin;
+    public AuthLevel AuthLevel => AuthLevel.User;
     public AuthDetails AuthDetails { get; set; }
     public Name? Name { get; set; }
 
@@ -52,7 +51,7 @@ public class User : IUser, IEquatable<User>
     public override bool Equals(object other) => (this == (User)other)!;
     public override int GetHashCode() => base.GetHashCode();
     public static bool operator ==(User a, User b) => a.Name?.Username == b.Name?.Username;
-    public static bool operator !=(User a, User b) => !(a.Name?.Username == b.Name?.Username);
+    public static bool operator !=(User a, User b) => a.Name?.Username != b.Name?.Username;
 
     // ToString override
     public override string ToString() =>

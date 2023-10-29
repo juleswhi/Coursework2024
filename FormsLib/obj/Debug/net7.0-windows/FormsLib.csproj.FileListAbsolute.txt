@@ -55,3 +55,4 @@ C:\Users\ayo mr white\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\refint\FormsLib.dll
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.pdb
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\ref\FormsLib.dll
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.Menus.formRegister.resources

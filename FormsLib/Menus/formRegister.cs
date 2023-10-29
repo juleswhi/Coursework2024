@@ -1,15 +1,6 @@
-﻿using AuthenticationLib.Login;
-using AuthenticationLib.Misc;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using UserDetails;
+﻿using UserDetails;
+using Serialization;
+
 
 namespace FormsLib.Menus
 {
@@ -18,6 +9,13 @@ namespace FormsLib.Menus
         public formRegister()
         {
             InitializeComponent();
+        }
+
+        public formRegister((string, string) details)
+        {
+            InitializeComponent();
+            txtBoxUsername.Text = details.Item1;
+            txtBoxPassword.Text = details.Item2;
         }
 
         private void btnBack_Click(object sender, EventArgs e) =>
@@ -34,10 +32,15 @@ namespace FormsLib.Menus
                 DOB = dtpDOB.Value,
                 Email = txtBoxEmail.Text
             };
+            
+            // Create user
 
+            user.Serialize();
 
+            // Go back to main menu
+            
+            (ActiveForm as MenuHolder)!.OpenChildForm(new LoginMenu());
 
-             
         }
     }
 }

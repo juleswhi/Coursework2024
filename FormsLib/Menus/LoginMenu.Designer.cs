@@ -33,6 +33,7 @@
             txtBoxPassword = new TextBox();
             btnLogin = new Button();
             lblUsernameError = new Label();
+            btnRegister = new Button();
             SuspendLayout();
             // 
             // lblLogin
@@ -81,11 +82,22 @@
             // lblUsernameError
             // 
             lblUsernameError.AutoSize = true;
-            lblUsernameError.ForeColor = SystemColors.MenuBar;
+            lblUsernameError.ForeColor = Color.Red;
             lblUsernameError.Location = new Point(95, 276);
             lblUsernameError.Name = "lblUsernameError";
             lblUsernameError.Size = new Size(0, 15);
             lblUsernameError.TabIndex = 4;
+            // 
+            // btnRegister
+            // 
+            btnRegister.Anchor = AnchorStyles.None;
+            btnRegister.Location = new Point(116, 259);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new Size(114, 23);
+            btnRegister.TabIndex = 5;
+            btnRegister.Text = "Register";
+            btnRegister.UseVisualStyleBackColor = true;
+            btnRegister.Click += btnRegister_Click;
             // 
             // LoginMenu
             // 
@@ -93,6 +105,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(206, 222, 189);
             ClientSize = new Size(349, 450);
+            Controls.Add(btnRegister);
             Controls.Add(lblUsernameError);
             Controls.Add(btnLogin);
             Controls.Add(txtBoxPassword);
@@ -111,5 +124,6 @@
         private TextBox txtBoxPassword;
         private Button btnLogin;
         private Label lblUsernameError;
+        private Button btnRegister;
     }
 }

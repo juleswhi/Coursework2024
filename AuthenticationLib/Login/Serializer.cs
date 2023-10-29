@@ -1,9 +1,17 @@
 ﻿using System.Runtime.Serialization.Json;
+using Filepaths;
 
 namespace Serialization;
 
 public static class Serializer
 {
+
+    public static Code Serialize(this User user)
+    {
+        var list = User.Users;
+        list.Add(user);
+        return list.Serialize(FilepathManager.UserDetails);
+    }
     public static Code Serialize<T>(this IEnumerable<T> list, string filepath)
     {
         try
@@ -19,7 +27,7 @@ public static class Serializer
         return Code.Ok;
     }
 
-    public static List<T> Deserialize<T>(this List<T> _, string filepath)
+    public static List<T> Deserialize<T>(this T _, string filepath)
     {
         try
         {

@@ -23,4 +23,9 @@ public partial class LoginMenu : Form
         // Clear the txtBox for password
         txtBoxPassword.Text = "";
     }
+
+    private void btnRegister_Click(object sender, EventArgs e) =>
+
+        (ActiveForm as MenuHolder)!.OpenChildForm
+            (new formRegister((txtBoxUsername.Text, txtBoxPassword.Text)));
 }
