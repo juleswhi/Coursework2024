@@ -31,23 +31,27 @@
             orangePlatform = new PictureBox();
             Player = new PictureBox();
             label1 = new Label();
+            wallRight = new PictureBox();
+            wallLeft = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)orangePlatform).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Player).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)wallRight).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)wallLeft).BeginInit();
             SuspendLayout();
             // 
             // orangePlatform
             // 
             orangePlatform.BackColor = Color.OrangeRed;
-            orangePlatform.Location = new Point(151, 343);
+            orangePlatform.Location = new Point(-19, 391);
             orangePlatform.Name = "orangePlatform";
-            orangePlatform.Size = new Size(499, 32);
+            orangePlatform.Size = new Size(857, 32);
             orangePlatform.TabIndex = 0;
             orangePlatform.TabStop = false;
             // 
             // Player
             // 
             Player.BackColor = Color.FromArgb(0, 192, 0);
-            Player.Location = new Point(405, 258);
+            Player.Location = new Point(366, 12);
             Player.Name = "Player";
             Player.Size = new Size(37, 50);
             Player.TabIndex = 1;
@@ -62,11 +66,31 @@
             label1.TabIndex = 2;
             label1.Text = "label1";
             // 
+            // wallRight
+            // 
+            wallRight.BackColor = Color.Fuchsia;
+            wallRight.Location = new Point(737, 73);
+            wallRight.Name = "wallRight";
+            wallRight.Size = new Size(64, 321);
+            wallRight.TabIndex = 3;
+            wallRight.TabStop = false;
+            // 
+            // wallLeft
+            // 
+            wallLeft.BackColor = Color.Fuchsia;
+            wallLeft.Location = new Point(0, 73);
+            wallLeft.Name = "wallLeft";
+            wallLeft.Size = new Size(64, 321);
+            wallLeft.TabIndex = 4;
+            wallLeft.TabStop = false;
+            // 
             // formPlatformer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(wallLeft);
+            Controls.Add(wallRight);
             Controls.Add(label1);
             Controls.Add(Player);
             Controls.Add(orangePlatform);
@@ -74,6 +98,8 @@
             Text = "formPlatformer";
             ((System.ComponentModel.ISupportInitialize)orangePlatform).EndInit();
             ((System.ComponentModel.ISupportInitialize)Player).EndInit();
+            ((System.ComponentModel.ISupportInitialize)wallRight).EndInit();
+            ((System.ComponentModel.ISupportInitialize)wallLeft).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -83,5 +109,7 @@
         private PictureBox orangePlatform;
         private PictureBox Player;
         private Label label1;
+        private PictureBox wallRight;
+        private PictureBox wallLeft;
     }
 }

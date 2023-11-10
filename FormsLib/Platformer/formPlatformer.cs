@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,58 +15,132 @@ namespace FormsLib.Platformer
 {
     public partial class formPlatformer : Form
     {
-        private Stopwatch Time { get; set; }
+        private float _targetX = 0;
+        private float _lerpX = 0.5f;
+
+        private float _friction = 0.2f;
+
+        private float _velocityY = 0;
+        private float _velocityX = 0;
+        private bool _isJumping = false;
+        private bool _formClosed = false;
+
+        private bool _movingLeft = false;
+        private bool _movingRight = false;
+
         public formPlatformer()
         {
             InitializeComponent();
-            this.KeyDown += Listener;
+
+            KeyDown += KeyDownListener;
+            KeyUp += KeyUpListener;
+
             Thread gameLoop = new Thread(() => GameLoop(ref Player));
+
             gameLoop.Start();
-            this.FormClosed += (sender, e) =>
+
+            FormClosed += (sender, e) =>
             {
-                YouShouldBeDead = true;
+                _formClosed = true;
             };
         }
-
-        public bool YouShouldBeDead { get; set; } = false;
 
 
         private void GameLoop(ref PictureBox Player)
         {
-            while (!YouShouldBeDead)
+            while (!_formClosed)
             {
-                if (Player.Location.Y >= orangePlatform.Location.Y - (1.5 * orangePlatform.Height) - 3 ||
-                    Player.Location.Y >= orangePlatform.Location.Y - (1.5 * orangePlatform.Height + 3))
-                {
-                    Player.Location = new(Player.Location.X, orangePlatform.Location.Y - Player.Height);
-                    label1.Text = Player.Location.ToString();
-                    continue;
+                // Gravity
+                _velocityY -= 0.2f;
+
+                // Side Speed
+                _velocityX = _velocityX + ( _targetX - _velocityX ) * _lerpX;
+
+                if(_velocityY !=  0)
+                    _velocityX = _velocityX - (_friction * _velocityX);
+
+                label1.Text = ($"Y: {_velocityY}, X: {_velocityX}");
+
+                if (Player.Location.X >= wallRight.Location.X) {
+                    _velocityX = 0f;
+                    Player.Location = new(wallRight.Location.X - (wallRight.Width / 2), Player.Location.Y);
                 }
 
-                IncrementY(-1);
+                if (Player.Location.X <= wallLeft.Location.X + wallLeft.Right) {
+                    _velocityX = 0f;
+                    Player.Location = new(wallLeft.Location.X + wallLeft.Right + 1, Player.Location.Y);
+                }
 
-                Thread.Sleep(50);
+                MovePlayer();
+
+
+                // Handles Jumping
+
+                if (Player.Location.Y >= orangePlatform.Location.Y - (1.5 * orangePlatform.Height) + 2 ||
+                    Player.Location.Y >= orangePlatform.Location.Y - (1.5 * orangePlatform.Height) - 2)
+                {
+                    _isJumping = false;
+                    Player.Location = new(Player.Location.X, orangePlatform.Location.Y - Player.Height);
+                    _velocityY = 0f;
+                }
+
+
+
+                Thread.Sleep(5);
             }
         }
 
 
-
-        private void Listener(object? sender, KeyEventArgs e)
+        private void MovePlayer()
         {
-            if (e.KeyCode != Keys.Space) return;
-
-
-
-            Random rng = new();
-            IncrementY(20);
+            Player.Location = new(Player.Location.X + (int)_velocityX, Player.Location.Y - (int)_velocityY);
         }
 
-        private void IncrementY(int amount) =>
-            Player.Location = new(Player.Location.X, Player.Location.Y - amount);
-        private void IncrementX(int amount) =>
-            Player.Location = new(Player.Location.X - amount, Player.Location.Y);
+        private void KeyDownListener(object? sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Space:
+                case Keys.W:
+                    if (_isJumping) return;
+                    _isJumping = true;
+                    _velocityY += 8;
+                    break;
 
+                case Keys.A:
+                    _movingLeft = true;
+                    _targetX = -10f;
+                    break;
 
+                case Keys.D:
+                    _movingRight = true;
+                    _targetX = 10f;
+                    break;
 
+                default:
+                    break;
+            }
+
+        }
+
+        private void KeyUpListener(object? sender, KeyEventArgs e)
+        {
+            switch(e.KeyCode)
+            {
+                case Keys.A:
+                    if (_movingRight) _targetX = 10f;
+                    else _targetX = 0f;
+                    _movingLeft = false;
+                    break;
+                case Keys.D:
+                    if (_movingLeft) _targetX = -10f;
+                    else _targetX = 0f;
+                    _movingRight = false;
+                    break;
+                default:
+                    break;
+                    
+            }
+        }
     }
 }
