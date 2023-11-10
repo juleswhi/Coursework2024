@@ -52,8 +52,6 @@ C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\FormsLib.pdb
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\AuthenticationLib.pdb
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.csproj.AssemblyReference.cache
-C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.Forms.PlayMenu.resources
-C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.csproj.GenerateResource.cache
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.AssemblyInfoInputs.cache
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\DesktopUI.AssemblyInfo.cs
