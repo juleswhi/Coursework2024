@@ -1,5 +1,4 @@
-﻿using Filepaths;
-using AuthenticationLib.Login;
+﻿using AuthenticationLib.Login;
 namespace FormsLib.Menus;
 
 public partial class LoginMenu : Form
@@ -21,11 +20,10 @@ public partial class LoginMenu : Form
         // tell the user that their details are wrong
         lblUsernameError.Text = "Your username or passowrd is wrong. Please try again ";
         // Clear the txtBox for password
-        txtBoxPassword.Text = "";
+        // txtBoxPassword.Text = "";
     }
 
     private void btnRegister_Click(object sender, EventArgs e) =>
-
         (ActiveForm as MenuHolder)!.OpenChildForm
             (new formRegister((txtBoxUsername.Text, txtBoxPassword.Text)));
 }

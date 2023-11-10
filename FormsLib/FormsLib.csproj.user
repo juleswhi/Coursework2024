@@ -20,5 +20,8 @@
     <Compile Update="Menus\MenuHolder.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Platformer\formPlatformer.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

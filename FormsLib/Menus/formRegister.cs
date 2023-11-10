@@ -10,7 +10,6 @@ namespace FormsLib.Menus
         {
             InitializeComponent();
         }
-
         public formRegister((string, string) details)
         {
             InitializeComponent();

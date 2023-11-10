@@ -32,7 +32,7 @@ public class User : IUser, IEquatable<User>
 
     public User() { }
 
-    public AuthLevel AuthLevel => AuthLevel.User;
+    public virtual AuthLevel AuthLevel => AuthLevel.User;
     public AuthDetails AuthDetails { get; set; }
     public Name? Name { get; set; }
 
