@@ -32,9 +32,11 @@
             pictureBox1 = new PictureBox();
             labelWin = new Label();
             pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)orangePlatform).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // orangePlatform
@@ -69,18 +71,28 @@
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.FromArgb(0, 192, 192);
-            pictureBox2.Location = new Point(119, 281);
+            pictureBox2.Location = new Point(78, 342);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(34, 50);
+            pictureBox2.Size = new Size(42, 55);
             pictureBox2.TabIndex = 6;
             pictureBox2.TabStop = false;
             pictureBox2.Tag = "Player";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = Color.FromArgb(64, 64, 64);
+            pictureBox3.Location = new Point(-28, -8);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(89, 459);
+            pictureBox3.TabIndex = 7;
+            pictureBox3.TabStop = false;
             // 
             // formPlatformer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(labelWin);
             Controls.Add(pictureBox1);
@@ -91,6 +103,7 @@
             ((System.ComponentModel.ISupportInitialize)orangePlatform).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -101,5 +114,6 @@
         private PictureBox pictureBox1;
         private Label labelWin;
         private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
     }
 }

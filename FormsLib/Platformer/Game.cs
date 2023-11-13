@@ -3,11 +3,11 @@
 internal class Game
 {
     private float _targetX = 0;
-    private float _moveRateX = 0.5f;
 
-    private float _friction = 0.2f;
-    private float _gravity = 0.3f;
-    private float _jumpHeight = 8f;
+    private const float _moveRateX = 0.5f;
+    private const float _friction = 0.2f;
+    private const float _gravity = 0.3f;
+    private const float _jumpHeight = 8f;
 
     private float _velocityX = 0;
     private float _velocityY = 0;
@@ -17,8 +17,9 @@ internal class Game
     private bool _movingLeft = false;
     private bool _movingRight = false;
 
-    private bool _jumpNext = false;
+    private int _animationDirection = 1;
 
+    private bool _jumpNext = false;
 
     private PictureBox _player;
     private PictureBox _token;
@@ -26,12 +27,17 @@ internal class Game
 
     private Label _labelWin;
 
+    private List<Bitmap>? _playerIdleSprites = new();
+    private List<Bitmap>? _playerRunSprites = new();
 
-    public List<Bitmap>? _playerIdleSprites = new();
     private int _currentIdleIndex = 0;
-    private int _currentDrawIndex = 0;
+    private int _currentRunIndex = 0;
+
+    private int _currentPlayerRotation = 1;
 
     private Form _form;
+
+    private bool _readInImages = false;
 
 
     public Game(Form form, Label win)
@@ -55,26 +61,53 @@ internal class Game
 
         Thread gameLoop = new Thread(() =>
         {
-            
-            Bitmap image = new Bitmap(Properties.Resources.Idle);
 
-            List<Bitmap> images = SpriteManager.GetSpritesFromSheet(image, 8);
+            _currentIdleIndex = 0;
+            Bitmap idleImage = new Bitmap(Properties.Resources.Idle);
+            Bitmap runImage = new Bitmap(Properties.Resources.Run);
 
-            for (int i = 0; i < images.Count; i++)
+            List<Bitmap> idleImages = SpriteManager.GetSpritesFromSheet(idleImage, 8);
+            List<Bitmap> runImages = SpriteManager.GetSpritesFromSheet(runImage, 8);
+
+            for (int i = 0; i < idleImages.Count; i++)
             {
-                images[0] = SpriteManager.Crop(images[i]);
+                idleImages[i] = SpriteManager.Crop(idleImages[i]);
+                runImages[i] = SpriteManager.Crop(runImages[i]);
             }
 
-            _playerIdleSprites = images;
+            _playerIdleSprites = idleImages;
+            _playerRunSprites = runImages;
+
 
             _player.Enabled = true;
             form.Invoke(_player.Show);
+
+            _readInImages = true;
+
+            _form.Invoke(() => _player.Height = idleImages[0].Height);
+            _form.Invoke(() => _player.Width = runImages[0].Width);
+            // _player.BackColor = Color.FromArgb(0);
             
             while (!_formClosed)
                 GameLoop();
         });
+
+        Thread animationLoop = new(() =>
+        {
+            while(!_readInImages)
+                Thread.Sleep(10);
+
+            while(!_formClosed)
+            {
+                DrawImage();
+                Thread.Sleep(30);
+            }
+        });
+
         
         gameLoop.Start();
+
+        // animationLoop.Start();
 
         form.FormClosed += (sender, e) => _formClosed = true;
        
@@ -83,9 +116,7 @@ internal class Game
     private void GameLoop()
     {
         if (IsWin())
-            // _labelWin.Text = "You Win!";
-
-        // DrawImage();
+            _form.Invoke(() => _labelWin.Text = "You Win!");
 
         _velocityX = _velocityX + (_targetX - _velocityX) * _moveRateX;
 
@@ -117,14 +148,12 @@ internal class Game
                 if (_movingRight)
                     _velocityX = 0f;
 
-                _form.Invoke(() => _labelWin.Text = "LEFT");
-
                 _form.Invoke(() => _player.Location = new(platform.Left - _player.Width, _player.Location.Y));
                 break;
             }
         }
 
-        _form.Invoke(() =>_player.Location = new(_player.Location.X + (int)_velocityX, _player.Location.Y - (int)_velocityY));
+        _form.Invoke(MovePlayer);
 
         foreach (var platform in _platforms)
         {
@@ -153,6 +182,7 @@ internal class Game
 
         _velocityY -= _gravity;
 
+
         Thread.Sleep(5);
     }
 
@@ -171,32 +201,60 @@ internal class Game
 
     private void DrawImage()
     {
-
-        if (_currentDrawIndex != 10) { _currentDrawIndex++; return; }
-
-        _currentDrawIndex = 0;
-
-        if (_velocityX > -0.1f && _velocityX < 0.1f)
+        _form.Invoke(() => _labelWin.Text = _animationDirection.ToString() + ", " + _movingLeft  + ", " + _movingRight);
+        
+        if (!_movingLeft && !_movingLeft) _animationDirection = 0;
+        else if (_movingRight)
         {
-            _player.Image = _playerIdleSprites[_currentIdleIndex];
-            if (_currentIdleIndex == 7) _currentIdleIndex = 0;
-            else _currentIdleIndex++;
+            _animationDirection = 1;
+            if (_currentPlayerRotation != 1)
+            {
+                _player.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                _currentPlayerRotation = 1;
+            }
+
         }
-        else if (_velocityX > 0.1f)
-        {
-            // Right
-        }
-        else if (_velocityX < -0.1f)
-        {
-            // Left
+        else if(_movingLeft) {
+            _animationDirection = -1; 
+            if(_currentPlayerRotation != -1)
+            {
+                _player.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                _currentPlayerRotation = -1;
+            }
         }
 
+
+        if (_animationDirection == 0)
+        {
+            if(_currentIdleIndex == 8) { _currentIdleIndex = 0; }
+
+            _form.Invoke(() => _player.Image = _playerIdleSprites![_currentIdleIndex]);
+
+            _currentIdleIndex++;
+        }
+        else if(_animationDirection == 1)
+        {
+            if(_currentRunIndex == 8) { _currentRunIndex = 0; }
+
+            _form.Invoke(() => _player.Image = _playerRunSprites![_currentRunIndex]);
+            _currentRunIndex++;
+        }
+        else if(_animationDirection == -1)
+        {
+            if(_currentRunIndex == 8) { _currentRunIndex = 0; }
+
+            _form.Invoke(() => _player.Image = _playerRunSprites![_currentRunIndex]);
+            _currentRunIndex++;
+        }
+        
+
+
+        
     }
 
-    private void MovePlayer()
-    {
+    private void MovePlayer() =>
         _player.Location = new(_player.Location.X + (int)_velocityX, _player.Location.Y - (int)_velocityY);
-    }
+
     private void KeyDownListener(object? sender, KeyEventArgs e)
     {
         switch (e.KeyCode)
