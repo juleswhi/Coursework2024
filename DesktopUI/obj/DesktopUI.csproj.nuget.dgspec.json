@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\DesktopUI\\DesktopUI.csproj": {}
+    "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\DesktopUI\\DesktopUI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj": {
+    "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj",
+        "projectUniqueName": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj",
         "projectName": "AuthenticationLib",
-        "projectPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj",
-        "packagesPath": "C:\\Users\\ayo mr white\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\obj\\",
+        "projectPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj",
+        "packagesPath": "C:\\Users\\i hate windows\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ayo mr white\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\i hate windows\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,21 +59,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\DesktopUI\\DesktopUI.csproj": {
+    "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\DesktopUI\\DesktopUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\DesktopUI\\DesktopUI.csproj",
+        "projectUniqueName": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\DesktopUI\\DesktopUI.csproj",
         "projectName": "DesktopUI",
-        "projectPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\DesktopUI\\DesktopUI.csproj",
-        "packagesPath": "C:\\Users\\ayo mr white\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\DesktopUI\\obj\\",
+        "projectPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\DesktopUI\\DesktopUI.csproj",
+        "packagesPath": "C:\\Users\\i hate windows\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\DesktopUI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ayo mr white\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\i hate windows\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,11 +91,11 @@
           "net7.0-windows7.0": {
             "targetAlias": "net7.0-windows",
             "projectReferences": {
-              "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj": {
-                "projectPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj"
+              "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj": {
+                "projectPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj"
               },
-              "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj": {
-                "projectPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj"
+              "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj": {
+                "projectPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj"
               }
             }
           }
@@ -120,21 +128,25 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj": {
+    "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj",
+        "projectUniqueName": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj",
         "projectName": "FormsLib",
-        "projectPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj",
-        "packagesPath": "C:\\Users\\ayo mr white\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\FormsLib\\obj\\",
+        "projectPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj",
+        "packagesPath": "C:\\Users\\i hate windows\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\FormsLib\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ayo mr white\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\i hate windows\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -148,8 +160,8 @@
           "net7.0-windows7.0": {
             "targetAlias": "net7.0-windows",
             "projectReferences": {
-              "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj": {
-                "projectPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj"
+              "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj": {
+                "projectPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\AuthenticationLib\\AuthenticationLib.csproj"
               }
             }
           }
@@ -182,7 +194,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,7 +1,10 @@
-﻿namespace FormsLib.Platformer;
+﻿using FormsLib.Chess;
+
+namespace FormsLib.Platformer;
 
 internal class Game
 {
+    private Size _playerSize;
     private float _targetX = 0;
 
     private const float _moveRateX = 0.5f;
@@ -24,6 +27,7 @@ internal class Game
     private PictureBox _player;
     private PictureBox _token;
     private List<PictureBox> _platforms = new();
+    private List<PictureBox> _buttons = new();
 
     private Label _labelWin;
 
@@ -46,15 +50,20 @@ internal class Game
         {
             if (control is PictureBox)
             {
+#pragma warning disable 
                 if ((control as PictureBox)!.Tag == "Player") _player = control as PictureBox;
                 else if ((control as PictureBox)!.Tag == "Token") _token = control as PictureBox;
+                // else if ((control as PictureBox)!.Tag.ToString().Contains("Play")) _buttons.Add(control as PictureBox);
                 else _platforms.Add(control as PictureBox);
+#pragma warning enable
             }
         }
 
         _form = form;
 
         _labelWin = win;
+
+        _playerSize = _player.Size;
 
         form.KeyDown += KeyDownListener;
         form.KeyUp += KeyUpListener;
@@ -84,8 +93,8 @@ internal class Game
 
             _readInImages = true;
 
-            _form.Invoke(() => _player.Height = idleImages[0].Height);
-            _form.Invoke(() => _player.Width = runImages[0].Width);
+            // _form.Invoke(() => _player.Height = idleImages[0].Height);
+            // _form.Invoke(() => _player.Width = runImages[0].Width);
             // _player.BackColor = Color.FromArgb(0);
             
             while (!_formClosed)
@@ -113,6 +122,40 @@ internal class Game
        
     }
 
+    private void PressedButton()
+    {
+        foreach (PictureBox button in _buttons) {
+            if (!IsColliding(button)) continue;
+
+            string[] tag = button.Tag.ToString().Split("-");
+
+            switch(tag[1])
+            {
+                case "Chess":
+                    new formBoard().Show();
+                    break;
+            }
+
+
+
+        }
+
+    }
+
+    private bool IsColliding(PictureBox colliding)
+    {
+    
+        if(_player.Right >= colliding.Left && 
+            _player.Left <= colliding.Right &&
+            _player.Top <= colliding.Bottom &&
+            _player.Bottom >= colliding.Top)
+        {
+            return true;
+        }
+
+        return false;
+    } 
+
     private void GameLoop()
     {
         if (IsWin())
@@ -120,14 +163,21 @@ internal class Game
 
         _velocityX = _velocityX + (_targetX - _velocityX) * _moveRateX;
 
+        PressedButton();
+
+
         if (_velocityY != 0)
+        {
+            // _player.Size = 
             _velocityX = _velocityX - (_friction * _velocityX);
+        }
+        else _player.Size = _playerSize;
 
         foreach (var platform in _platforms)
         {
             // Coming from RHS
-            if (_player.Left <= platform.Right + 2 &&
-                _player.Right > platform.Left + 2 &&
+            if (_player.Left <= platform.Right + 1 &&
+                _player.Right > platform.Left + ( 0.5 * platform.Width ) &&
                 _player.Bottom > platform.Top &&
                 _player.Top < platform.Bottom)
             {
@@ -139,8 +189,8 @@ internal class Game
             }
 
             // Coming from LHS 
-            if (_player.Right >= platform.Left - 2 &&
-                _player.Left < platform.Right - 2 &&
+            if (_player.Right >= platform.Left - 1 &&
+                _player.Left < platform.Right - ( 0.5 * platform.Width ) &&
                 _player.Bottom > platform.Top &&
                 _player.Top < platform.Bottom)
             {
@@ -148,12 +198,14 @@ internal class Game
                 if (_movingRight)
                     _velocityX = 0f;
 
-                _form.Invoke(() => _player.Location = new(platform.Left - _player.Width, _player.Location.Y));
+                _form.Invoke(() => _player.Location = new(platform.Left - _player.Width , _player.Location.Y));
                 break;
             }
         }
 
         _form.Invoke(MovePlayer);
+
+        _form.Invalidate();
 
         foreach (var platform in _platforms)
         {
@@ -165,7 +217,7 @@ internal class Game
                 _isJumping = false;
                 _form.Invoke(() => _player.Location = new(_player.Location.X, platform.Location.Y - _player.Height));
                 _velocityY = 0f;
-                if (_jumpNext) _velocityY = _jumpHeight;
+                if (_jumpNext) { _velocityY = _jumpHeight; _isJumping = true; }
                 break;
             }
 
@@ -188,6 +240,7 @@ internal class Game
 
     private bool IsWin()
     {
+        if(_token is not null)
         if(_player.Right >= _token.Left && 
             _player.Left <= _token.Right &&
             _player.Top <= _token.Bottom &&
@@ -259,6 +312,7 @@ internal class Game
     {
         switch (e.KeyCode)
         {
+            case Keys.Up:
             case Keys.Space:
             case Keys.W:
                 if (_isJumping) return;
@@ -266,12 +320,12 @@ internal class Game
                 _isJumping = true;
                 _velocityY = _jumpHeight;
                 break;
-
+            case Keys.Left:
             case Keys.A:
                 _movingLeft = true;
                 _targetX = -10f;
                 break;
-
+            case Keys.Right:
             case Keys.D:
                 _movingRight = true;
                 _targetX = 10f;
@@ -285,15 +339,18 @@ internal class Game
     {
         switch (e.KeyCode)
         {
+            case Keys.Up:
             case Keys.W:
             case Keys.Space:
                 _jumpNext = false;
                 break;
+            case Keys.Left:
             case Keys.A:
                 if (_movingRight) _targetX = 10f;
                 else _targetX = 0f;
                 _movingLeft = false;
                 break;
+            case Keys.Right:
             case Keys.D:
                 if (_movingLeft) _targetX = -10f;
                 else _targetX = 0f;

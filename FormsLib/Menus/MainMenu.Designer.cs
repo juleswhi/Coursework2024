@@ -28,52 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panelButtonBar = new Panel();
-            h = new Button();
-            btnPlay = new Button();
-            panelButtonBar.SuspendLayout();
+            button1 = new Button();
             SuspendLayout();
             // 
-            // panelButtonBar
+            // button1
             // 
-            panelButtonBar.Anchor = AnchorStyles.None;
-            panelButtonBar.Controls.Add(h);
-            panelButtonBar.Controls.Add(btnPlay);
-            panelButtonBar.Location = new Point(297, 0);
-            panelButtonBar.Name = "panelButtonBar";
-            panelButtonBar.Size = new Size(200, 451);
-            panelButtonBar.TabIndex = 0;
-            // 
-            // h
-            // 
-            h.BackColor = Color.FromArgb(158, 179, 132);
-            h.Dock = DockStyle.Top;
-            h.FlatStyle = FlatStyle.Flat;
-            h.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            h.ForeColor = Color.FromArgb(64, 64, 64);
-            h.Location = new Point(0, 84);
-            h.Margin = new Padding(20);
-            h.Name = "h";
-            h.Size = new Size(200, 84);
-            h.TabIndex = 1;
-            h.Text = "Settings";
-            h.UseVisualStyleBackColor = false;
-            // 
-            // btnPlay
-            // 
-            btnPlay.BackColor = Color.FromArgb(158, 179, 132);
-            btnPlay.Dock = DockStyle.Top;
-            btnPlay.FlatStyle = FlatStyle.Flat;
-            btnPlay.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPlay.ForeColor = Color.FromArgb(64, 64, 64);
-            btnPlay.Location = new Point(0, 0);
-            btnPlay.Margin = new Padding(20);
-            btnPlay.Name = "btnPlay";
-            btnPlay.Size = new Size(200, 84);
-            btnPlay.TabIndex = 0;
-            btnPlay.Text = "Play Chess!";
-            btnPlay.UseVisualStyleBackColor = false;
-            btnPlay.Click += btnPlay_Click;
+            button1.BackColor = Color.Gray;
+            button1.Location = new Point(291, 135);
+            button1.Name = "button1";
+            button1.Size = new Size(124, 83);
+            button1.TabIndex = 0;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = false;
             // 
             // MainMenu
             // 
@@ -81,17 +47,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(206, 222, 189);
             ClientSize = new Size(800, 450);
-            Controls.Add(panelButtonBar);
+            Controls.Add(button1);
             Name = "MainMenu";
             Text = "MainMenu";
-            panelButtonBar.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panelButtonBar;
-        private Button btnPlay;
-        private Button h;
+        private Button button1;
     }
 }

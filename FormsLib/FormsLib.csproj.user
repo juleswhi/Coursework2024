@@ -23,5 +23,8 @@
     <Compile Update="Platformer\formPlatformer.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Platformer\formPlatformerMainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

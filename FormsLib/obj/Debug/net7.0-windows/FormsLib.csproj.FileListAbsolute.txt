@@ -60,3 +60,5 @@ C:\Users\i hate windows\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.Menus.formRegister.resources
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.Platformer.formPlatformer.resources
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.Properties.Resources.resources
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.Properties.Resources.resources
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\FormsLib\obj\Debug\net7.0-windows\FormsLib.Platformer.formPlatformerMainMenu.resources

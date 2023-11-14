@@ -12,7 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\ayo mr white\\.nuget\\packages"
+      "C:\\Users\\i hate windows\\.nuget\\packages",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
