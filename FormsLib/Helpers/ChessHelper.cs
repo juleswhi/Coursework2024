@@ -31,6 +31,7 @@ public static class ChessHelper
          'f' => (6, notation.Rank),
          'g' => (7, notation.Rank),
          'h' => (8, notation.Rank),
+         _ => new()
     };
 
     public static string ImageDirectory = "../../../../FormsLib/Chess/Images/";

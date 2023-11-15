@@ -1,9 +1,18 @@
 ﻿using FormsLib.Chess;
+using System.Timers;
+using System.Windows.Forms;
 
 namespace FormsLib.Platformer;
 
 internal class Game
 {
+
+    // Time Delta Time
+
+    private DateTime _lastFrameTime;
+    private double _deltaTime;
+    private const int _deltaTimeMultiplier = 62;
+
     private Size _playerSize;
     private float _targetX = 0;
 
@@ -50,12 +59,12 @@ internal class Game
         {
             if (control is PictureBox)
             {
-#pragma warning disable 
+                #pragma warning disable 
                 if ((control as PictureBox)!.Tag == "Player") _player = control as PictureBox;
                 else if ((control as PictureBox)!.Tag == "Token") _token = control as PictureBox;
                 // else if ((control as PictureBox)!.Tag.ToString().Contains("Play")) _buttons.Add(control as PictureBox);
                 else _platforms.Add(control as PictureBox);
-#pragma warning enable
+                #pragma warning enable
             }
         }
 
@@ -68,9 +77,10 @@ internal class Game
         form.KeyDown += KeyDownListener;
         form.KeyUp += KeyUpListener;
 
+        _lastFrameTime = DateTime.Now;
+
         Thread gameLoop = new Thread(() =>
         {
-
             _currentIdleIndex = 0;
             Bitmap idleImage = new Bitmap(Properties.Resources.Idle);
             Bitmap runImage = new Bitmap(Properties.Resources.Run);
@@ -87,39 +97,54 @@ internal class Game
             _playerIdleSprites = idleImages;
             _playerRunSprites = runImages;
 
-
-            _player.Enabled = true;
-            form.Invoke(_player.Show);
+            _form.Invoke(() => _player.Enabled = true);
+            _form.Invoke(() => _player.Visible = true);
 
             _readInImages = true;
 
-            // _form.Invoke(() => _player.Height = idleImages[0].Height);
-            // _form.Invoke(() => _player.Width = runImages[0].Width);
-            // _player.BackColor = Color.FromArgb(0);
-            
-            while (!_formClosed)
-                GameLoop();
-        });
+            System.Timers.Timer timer = new(5);
 
-        Thread animationLoop = new(() =>
-        {
-            while(!_readInImages)
-                Thread.Sleep(10);
-
-            while(!_formClosed)
+            timer.Elapsed += (sender, e) =>
             {
-                DrawImage();
-                Thread.Sleep(30);
-            }
+                if (_formClosed) timer.Stop();
+
+                GameLoop();
+            };
+
+            timer.Start();
+            
         });
 
+        Thread playerSprite = new Thread(() =>
+        {
+            PictureBox playerSprite = new();
+
+            playerSprite.Size = _player.Size;
+            playerSprite.Location = _player.Location;
+            playerSprite.BackColor = Color.Green;
+            playerSprite.BringToFront();
+
+
+            _form.Invoke(() => _form.Controls.Add(playerSprite));
+            _form.Invoke(() => playerSprite.Show());
+
+
+            System.Timers.Timer timer = new(100);
+            timer.Elapsed += (object sender, ElapsedEventArgs e) => _form.Invoke(() => playerSprite.Location = _player.Location);
+
+            timer.Start();
+
+            
+        });
+
+
+       
         
         gameLoop.Start();
 
-        // animationLoop.Start();
+        // playerSprite.Start();
 
         form.FormClosed += (sender, e) => _formClosed = true;
-       
     }
 
     private void PressedButton()
@@ -135,107 +160,96 @@ internal class Game
                     new formBoard().Show();
                     break;
             }
-
-
-
         }
 
     }
 
-    private bool IsColliding(PictureBox colliding)
+    private bool IsColliding(PictureBox colliding) =>
+        _player.Bounds.IntersectsWith(new(colliding.Location, new(colliding.Width, colliding.Height)));
+
+    private Dictionary<Control, Action> _controlActions = new();
+
+    private void AddControlAction(Control control, Action action)
     {
-    
-        if(_player.Right >= colliding.Left && 
-            _player.Left <= colliding.Right &&
-            _player.Top <= colliding.Bottom &&
-            _player.Bottom >= colliding.Top)
-        {
-            return true;
-        }
+         if(_controlActions.ContainsKey(control))
+             _controlActions[control] += action;
 
-        return false;
-    } 
+         else 
+            _controlActions.Add(control, action);
+    }
 
+    private bool _gravityEnabled;
     private void GameLoop()
     {
-        if (IsWin())
-            _form.Invoke(() => _labelWin.Text = "You Win!");
 
-        _velocityX = _velocityX + (_targetX - _velocityX) * _moveRateX;
+        bool touchingGround = false;
 
-        PressedButton();
+        DateTime currentFrameTime = DateTime.Now;
+        TimeSpan elapsed = currentFrameTime - _lastFrameTime;
+        _lastFrameTime = currentFrameTime;
+        _deltaTime = elapsed.TotalSeconds;
 
 
-        if (_velocityY != 0)
-        {
-            // _player.Size = 
+        // if (IsWin())
+        // _form.Invoke(() => _labelWin.Text = "You Win!");
+        // AddControlAction(_labelWin, () => _labelWin.Text = "You win!");
+
+        _velocityX = _velocityX + (_targetX - _velocityX) * _moveRateX * ( _deltaTimeMultiplier * (float)_deltaTime );
+
+        // PressedButton();
+
+
+        if(!_movingLeft && !_movingRight)
             _velocityX = _velocityX - (_friction * _velocityX);
-        }
-        else _player.Size = _playerSize;
 
-        foreach (var platform in _platforms)
+
+
+        foreach (var platform in _platforms) {
+
+            Rectangle groundBuffer = new Rectangle(
+                platform.Left + 2,
+                platform.Top + 2,
+                platform.Width,
+                platform.Height
+                );
+
+            if (_player.Bounds.IntersectsWith(groundBuffer))
+            {
+                _form.Invoke(() => _labelWin.Text = "Touching");
+
+                // If the character is above the surface, move them to the surface
+                if (_player.Bottom >= groundBuffer.Top)
+                {
+                    _isJumping = false;
+                    AddControlAction(_player, () => _player.Top = groundBuffer.Top - _player.Height);
+                    _velocityY = 0;
+                    _gravityEnabled = false;
+                }
+
+                // If the character is below the surface, move them to the surface
+                if (_player.Bottom > groundBuffer.Bottom)
+                {
+                    _player.Top = platform.Bottom;
+                }
+
+                break;
+            }
+        }
+
+
+
+
+        AddControlAction(_player, MovePlayer);
+
+        foreach(var controlAction in _controlActions)
         {
-            // Coming from RHS
-            if (_player.Left <= platform.Right + 1 &&
-                _player.Right > platform.Left + ( 0.5 * platform.Width ) &&
-                _player.Bottom > platform.Top &&
-                _player.Top < platform.Bottom)
-            {
-                if (_movingLeft)
-                    _velocityX = 0f;
-
-                _form.Invoke(() => _player.Location = new(platform.Right, _player.Location.Y));
-                break;
-            }
-
-            // Coming from LHS 
-            if (_player.Right >= platform.Left - 1 &&
-                _player.Left < platform.Right - ( 0.5 * platform.Width ) &&
-                _player.Bottom > platform.Top &&
-                _player.Top < platform.Bottom)
-            {
-
-                if (_movingRight)
-                    _velocityX = 0f;
-
-                _form.Invoke(() => _player.Location = new(platform.Left - _player.Width , _player.Location.Y));
-                break;
-            }
+            _form.Invoke(controlAction.Value);
         }
 
-        _form.Invoke(MovePlayer);
+        _velocityY -= _gravity * (_deltaTimeMultiplier * (float)_deltaTime);
+        _gravityEnabled = true;
 
-        _form.Invalidate();
-
-        foreach (var platform in _platforms)
-        {
-            if (_player.Bottom >= platform.Top &&
-                _player.Top < platform.Top + 2 &&
-                _player.Right > platform.Left &&
-                _player.Left < platform.Right)
-            {
-                _isJumping = false;
-                _form.Invoke(() => _player.Location = new(_player.Location.X, platform.Location.Y - _player.Height));
-                _velocityY = 0f;
-                if (_jumpNext) { _velocityY = _jumpHeight; _isJumping = true; }
-                break;
-            }
-
-            if (_player.Top <= platform.Bottom &&
-                _player.Bottom > platform.Bottom &&
-                _player.Right > platform.Left &&
-                _player.Left < platform.Right)
-            {
-                _form.Invoke(() => _player.Location = new(_player.Location.X, platform.Location.Y + platform.Height + 3));
-                _velocityY -= 10f;
-                break;
-            }
-        }
-
-        _velocityY -= _gravity;
-
-
-        Thread.Sleep(5);
+        _controlActions.Clear();
     }
 
     private bool IsWin()
@@ -252,61 +266,17 @@ internal class Game
         return false;
     }
 
-    private void DrawImage()
+    public void Dispose()
     {
-        _form.Invoke(() => _labelWin.Text = _animationDirection.ToString() + ", " + _movingLeft  + ", " + _movingRight);
-        
-        if (!_movingLeft && !_movingLeft) _animationDirection = 0;
-        else if (_movingRight)
-        {
-            _animationDirection = 1;
-            if (_currentPlayerRotation != 1)
-            {
-                _player.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
-                _currentPlayerRotation = 1;
-            }
-
-        }
-        else if(_movingLeft) {
-            _animationDirection = -1; 
-            if(_currentPlayerRotation != -1)
-            {
-                _player.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
-                _currentPlayerRotation = -1;
-            }
-        }
-
-
-        if (_animationDirection == 0)
-        {
-            if(_currentIdleIndex == 8) { _currentIdleIndex = 0; }
-
-            _form.Invoke(() => _player.Image = _playerIdleSprites![_currentIdleIndex]);
-
-            _currentIdleIndex++;
-        }
-        else if(_animationDirection == 1)
-        {
-            if(_currentRunIndex == 8) { _currentRunIndex = 0; }
-
-            _form.Invoke(() => _player.Image = _playerRunSprites![_currentRunIndex]);
-            _currentRunIndex++;
-        }
-        else if(_animationDirection == -1)
-        {
-            if(_currentRunIndex == 8) { _currentRunIndex = 0; }
-
-            _form.Invoke(() => _player.Image = _playerRunSprites![_currentRunIndex]);
-            _currentRunIndex++;
-        }
-        
-
-
-        
+        Environment.Exit(0);
     }
 
+
     private void MovePlayer() =>
-        _player.Location = new(_player.Location.X + (int)_velocityX, _player.Location.Y - (int)_velocityY);
+        _player.Location = new Point(
+            (int)(_player.Location.X + _velocityX * (_deltaTimeMultiplier * (float)_deltaTime)),
+            (int)(_player.Location.Y - _velocityY * (_deltaTimeMultiplier * (float)_deltaTime))
+        );
 
     private void KeyDownListener(object? sender, KeyEventArgs e)
     {

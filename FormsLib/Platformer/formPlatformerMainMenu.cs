@@ -15,6 +15,7 @@ namespace FormsLib.Platformer
         public formPlatformerMainMenu()
         {
             InitializeComponent();
+            DoubleBuffered = true;
             new Game(this, new Label());
         }
     }
