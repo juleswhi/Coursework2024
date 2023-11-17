@@ -8,6 +8,24 @@ public abstract class aShader
     public abstract void PostDraw(PhysicsObject obj, Graphics g);
 }
 
+public class ShaderRigidbody : aShader
+{
+    public static readonly SolidBrush pen = new (Color.Blue);
+
+    public override void Draw(PhysicsObject obj, Graphics g)
+    {
+        g.FillRectangle(pen, obj.Aabb.Min.X, obj.Aabb.Min.Y, obj.Aabb.Max.X - obj.Aabb.Min.X, obj.Aabb.Max.Y - obj.Aabb.Min.Y);
+    }
+
+    public override void PostDraw(PhysicsObject obj, Graphics g)
+    {
+    }
+
+    public override void PreDraw(PhysicsObject obj, Graphics g)
+    {
+    }
+}
+
 public class ShaderDefault : aShader
 {
     public static readonly Pen RedPen = new Pen(Color.Red);

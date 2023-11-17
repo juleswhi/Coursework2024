@@ -1,6 +1,9 @@
 ﻿using AuthenticationLib.Login;
 namespace UserDetails;
-public class Admin : User
+public class Admin : IUser
 {
-    public override AuthLevel AuthLevel => AuthLevel.Admin;
+    public AuthLevel AuthLevel => AuthLevel.Admin;
+    public AuthDetails AuthDetails { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public Name? Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
 }

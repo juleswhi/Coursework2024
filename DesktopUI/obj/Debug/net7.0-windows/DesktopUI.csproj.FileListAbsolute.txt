@@ -62,3 +62,5 @@ C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\obj\Debug\net7.0-windows\ref\DesktopUI.dll
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\PhysicsEngine.dll
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\PhysicsEngine.pdb
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\PhysicsEngine.dll
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\PhysicsEngine.pdb

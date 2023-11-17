@@ -6,14 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="UserDetails.csv" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="UserDetails.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-
 </Project>

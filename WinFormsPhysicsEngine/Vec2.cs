@@ -18,6 +18,12 @@ public struct Vec2
         return new Vec2 { X = v1.X / distance, Y = v1.Y / distance };
     }
 
+    public Point ToPoint() =>
+        new Point((int)X, (int)Y);
+
+    public PointF ToPointF() =>
+        new PointF((int)X, (int)Y);
+
     
     public static float DotProduct(Vec2 left, Vec2 right)
     {

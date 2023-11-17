@@ -21,7 +21,11 @@ public class User : IUser, IEquatable<User>
 
     public DateTime DOB { get; set; }
     public string Email { get; set; }
-
+    // username and password
+    public AuthDetails AuthDetails { get; set; }
+    public Name? Name { get; set; }
+    // User or Admin
+    public virtual AuthLevel AuthLevel => AuthLevel.User;
 
 
     public User(AuthDetails AuthDetails, Name? Name = null)
@@ -31,10 +35,6 @@ public class User : IUser, IEquatable<User>
     }
 
     public User() { }
-
-    public virtual AuthLevel AuthLevel => AuthLevel.User;
-    public AuthDetails AuthDetails { get; set; }
-    public Name? Name { get; set; }
 
 
 

@@ -6,7 +6,7 @@ public class Physics
 {
     #region Public Properties
 
-    public float GravityScale = 10F;
+    public float GravityScale = 75f;
 
     public Vec2 Gravity { get; set; }
 
@@ -15,7 +15,6 @@ public class Physics
     #endregion
 
     #region Local Declarations
-
 
     public const float FPS = 60;
     private const float _dt = 1 / FPS;
@@ -73,6 +72,7 @@ public class Physics
             Min = new Vec2 { X = loc.X - radius, Y = loc.Y - radius },
             Max = new Vec2 { X = loc.X + radius, Y = loc.Y + radius }
         };
+
         PhysicsMath.CorrectBoundingBox(ref oAabb);
         var obj = new PhysicsObject(oAabb, PhysicsObject.Type.Circle, restitution, locked, shader);
         ListStaticObjects.Add(obj);
@@ -108,9 +108,7 @@ public class Physics
     public void AddVelocityToActive(Vec2 velocityDelta)
     {
         if (ActiveObject == null || ActiveObject.Mass >= 1000000)
-        {
             return;
-        }
 
         ActiveObject.Velocity += velocityDelta;
     }

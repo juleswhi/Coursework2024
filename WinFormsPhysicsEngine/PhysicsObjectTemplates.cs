@@ -13,6 +13,7 @@ public static class ObjectTemplates
     private static ShaderBallVelocity shaderBallVelocity = new ShaderBallVelocity();
 
     private static ShaderWater shaderWater = new ShaderWater();
+    public static ShaderRigidbody shaderRigidbody = new ShaderRigidbody();
 
     public static PhysicsObject CreateSmallBall(float originX, float originY)
     {
@@ -24,6 +25,16 @@ public static class ObjectTemplates
         Physics.ListGravityObjects.Add(oPhysicsObject);
         return oPhysicsObject;
     }
+
+    public static PhysicsObject CreateRigidbody(float originX, float originY, int scaleFactor)
+    {
+        var oPhysicsObject = Physics.CreateStaticBox(new Vec2(originX, originY), new Vec2(originX + scaleFactor, originY + scaleFactor), false, shaderRigidbody, 100);
+        Physics.ListGravityObjects.Add(oPhysicsObject);
+        return oPhysicsObject;
+    }
+
+    public static PhysicsObject CreatePlayer() =>
+        CreateRigidbody(200, 200, 30);
 
     public static PhysicsObject CreateMedBall(float originX, float originY)
     {

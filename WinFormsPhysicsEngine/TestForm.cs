@@ -4,6 +4,7 @@ namespace PhysicsEngine;
 
 public partial class TestForm : Form
 {
+    PhysicsObject _player;
     private readonly FastLoop _fastLoop;
     private readonly Stopwatch _stopwatch = new();
 
@@ -28,6 +29,14 @@ public partial class TestForm : Form
         InitializeComponent();
         _fastLoop = new(GameLoop);
         _stopwatch.Start();
+        KeyDown += TestForm_KeyDown;
+    }
+
+    private void TestForm_KeyDown(object? sender, KeyEventArgs e)
+    {
+        _physics.ActivateAtPoint(_player.Center.ToPointF());
+        _physics.AddVelocityToActive(new Vec2(0f, 10f));
+        _physics.ReleaseActiveObject();
     }
 
     private void FormMainWindow_Load(object sender, EventArgs e)
@@ -37,6 +46,8 @@ public partial class TestForm : Form
         ObjectTemplates.CreateWall(0, 0, Canvas.Width, 65);
         ObjectTemplates.CreateWall(0, Canvas.Height - 65, Canvas.Width, Canvas.Height);
 
+
+        _player = ObjectTemplates.CreatePlayer();
     }
 
     private void InvalidateWindow() =>
@@ -61,10 +72,8 @@ public partial class TestForm : Form
             obj.Shader.PostDraw(obj, e.Graphics);
     }
 
-
     private void GameLoop(double elapsedTime)
     {
-        // RunEngine ( elapsed time )
         RunEngine(elapsedTime);
 
         if (_stopwatch.ElapsedMilliseconds - _frameTime > 1000 / 60)
@@ -87,4 +96,5 @@ public partial class TestForm : Form
     {
         _physics.Tick(elapsedTime);
     }
+
 }

@@ -2,6 +2,7 @@ using PhysicsEngine;
 using FormsLib.Chess;
 using FormsLib.Menus;
 using FormsLib.Platformer;
+using UserDetails;
 
 namespace DesktopUI
 {

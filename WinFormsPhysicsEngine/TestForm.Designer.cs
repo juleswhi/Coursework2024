@@ -39,6 +39,7 @@
             Canvas.Location = new Point(0, 0);
             Canvas.Name = "Canvas";
             Canvas.Size = new Size(800, 450);
+            Canvas.SizeMode = PictureBoxSizeMode.StretchImage;
             Canvas.TabIndex = 0;
             Canvas.TabStop = false;
             Canvas.Paint += Canvas_DrawGame;
