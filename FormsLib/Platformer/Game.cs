@@ -181,7 +181,6 @@ internal class Game
     private bool _gravityEnabled;
     private void GameLoop()
     {
-
         bool touchingGround = false;
 
         DateTime currentFrameTime = DateTime.Now;
@@ -202,32 +201,32 @@ internal class Game
         if(!_movingLeft && !_movingRight)
             _velocityX = _velocityX - (_friction * _velocityX);
 
+        ReadOnlySpan<PictureBox> platforms = _platforms.ToArray();
 
+        foreach (var platform in platforms) {
 
-        foreach (var platform in _platforms) {
-
-            Rectangle groundBuffer = new Rectangle(
+            /*Rectangle groundBuffer = new Rectangle(
                 platform.Left + 2,
                 platform.Top + 2,
-                platform.Width,
-                platform.Height
-                );
+                platform.Width - 4,
+                platform.Height - 4
+                ); */
 
-            if (_player.Bounds.IntersectsWith(groundBuffer))
+            if (_player.Bounds.IntersectsWith(platform.Bounds))
             {
                 _form.Invoke(() => _labelWin.Text = "Touching");
 
                 // If the character is above the surface, move them to the surface
-                if (_player.Bottom >= groundBuffer.Top)
+                if (_player.Bottom >= platform.Top - 2)
                 {
                     _isJumping = false;
-                    AddControlAction(_player, () => _player.Top = groundBuffer.Top - _player.Height);
+                    AddControlAction(_player, () => _player.Location = new(_player.Location.X, platform.Location.Y - _player.Height));
                     _velocityY = 0;
                     _gravityEnabled = false;
                 }
 
                 // If the character is below the surface, move them to the surface
-                if (_player.Bottom > groundBuffer.Bottom)
+                if (_player.Bottom > platform.Bottom)
                 {
                     _player.Top = platform.Bottom;
                 }
@@ -236,7 +235,7 @@ internal class Game
             }
         }
 
-
+        _velocityY -= _gravity * (_deltaTimeMultiplier * (float)_deltaTime);
 
 
         AddControlAction(_player, MovePlayer);
@@ -246,32 +245,12 @@ internal class Game
             _form.Invoke(controlAction.Value);
         }
 
-        _velocityY -= _gravity * (_deltaTimeMultiplier * (float)_deltaTime);
         _gravityEnabled = true;
 
         _controlActions.Clear();
     }
 
-    private bool IsWin()
-    {
-        if(_token is not null)
-        if(_player.Right >= _token.Left && 
-            _player.Left <= _token.Right &&
-            _player.Top <= _token.Bottom &&
-            _player.Bottom >= _token.Top)
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    public void Dispose()
-    {
-        Environment.Exit(0);
-    }
-
-
+   
     private void MovePlayer() =>
         _player.Location = new Point(
             (int)(_player.Location.X + _velocityX * (_deltaTimeMultiplier * (float)_deltaTime)),

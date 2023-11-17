@@ -9,7 +9,8 @@
       "DesktopUI/1.0.0": {
         "dependencies": {
           "AuthenticationLib": "1.0.0",
-          "FormsLib": "1.0.0"
+          "FormsLib": "1.0.0",
+          "PhysicsEngine": "1.0.0"
         },
         "runtime": {
           "DesktopUI.dll": {}
@@ -27,6 +28,11 @@
         "runtime": {
           "FormsLib.dll": {}
         }
+      },
+      "PhysicsEngine/1.0.0": {
+        "runtime": {
+          "PhysicsEngine.dll": {}
+        }
       }
     }
   },
@@ -42,6 +48,11 @@
       "sha512": ""
     },
     "FormsLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PhysicsEngine/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -27,6 +27,19 @@
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WindowsForms"
         ]
+      },
+      "PhysicsEngine/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/PhysicsEngine.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PhysicsEngine.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
       }
     }
   },
@@ -40,12 +53,18 @@
       "type": "project",
       "path": "../FormsLib/FormsLib.csproj",
       "msbuildProject": "../FormsLib/FormsLib.csproj"
+    },
+    "PhysicsEngine/1.0.0": {
+      "type": "project",
+      "path": "../WinFormsPhysicsEngine/PhysicsEngine.csproj",
+      "msbuildProject": "../WinFormsPhysicsEngine/PhysicsEngine.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0-windows7.0": [
       "AuthenticationLib >= 1.0.0",
-      "FormsLib >= 1.0.0"
+      "FormsLib >= 1.0.0",
+      "PhysicsEngine >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -80,6 +99,9 @@
             },
             "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj": {
               "projectPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\FormsLib\\FormsLib.csproj"
+            },
+            "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\WinFormsPhysicsEngine\\PhysicsEngine.csproj": {
+              "projectPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\WinFormsPhysicsEngine\\PhysicsEngine.csproj"
             }
           }
         }
