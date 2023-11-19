@@ -3,6 +3,8 @@ using RayEngine.Levels;
 using PhysicsEngine;
 using System.Diagnostics;
 using System.Timers;
+using System.Runtime.InteropServices.Marshalling;
+using System.Runtime.InteropServices;
 
 namespace RayEngine;
 
@@ -212,16 +214,18 @@ public class Raycaster
 
     private float DrawRay(Graphics g, PointF start, Vec2 delta)
     {
-        
-        float max = 100f;
+        ReadOnlySpan<Rectangle> rects = CollectionsMarshal.AsSpan(walls);
+        float max = 50f;
+        // Algorithm for mitigating amount of checks
+        // DDA?
 
         for(float i = 0; i < max; i += 0.5f)
         {
             var point = new PointF(start.X + (delta.X * i), start.Y + (delta.Y * i));
-            // Check if inside or touching a wall
-            for (int j = 0; j < walls.Count; j++)
+            for (int j = 0; j < rects.Length; j++)
             {
-                if (walls[j].X <= point.X && point.X < walls[j].X + walls[j].Width && walls[j].Y < point.Y && point.Y < walls[j].Y + walls[j].Height)
+                // Check if inside or touching a wall
+                if (rects[j].X <= point.X && point.X < rects[j].X + rects[j].Width && rects[j].Y < point.Y && point.Y < rects[j].Y + walls[j].Height)
                 {
                     // Draw line to the wall
                     g.DrawLine(red, start, point);
