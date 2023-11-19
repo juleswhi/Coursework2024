@@ -15,3 +15,4 @@ C:\Users\ayo mr white\Documents\GitHub\Coursework2024\RayEngine\bin\Debug\net7.0
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\RayEngine\bin\Debug\net7.0-windows\PhysicsEngine.pdb
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\RayEngine\obj\Debug\net7.0-windows\RayEngine.csproj.AssemblyReference.cache
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\RayEngine\obj\Debug\net7.0-windows\RayEngine.csproj.CopyComplete
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\RayEngine\obj\Debug\net7.0-windows\RayEngine.formView.resources

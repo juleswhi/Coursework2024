@@ -5,5 +5,8 @@
     <Compile Update="formRaycaster.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="formView.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

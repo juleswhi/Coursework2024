@@ -15,6 +15,9 @@ public class Raycaster
     private FastLoop _fastLoop;
     private Stopwatch _stopwatch = new();
 
+    private formView _view;
+    private PictureBox _viewCanvas;
+
     private System.Timers.Timer _timer;
 
     private long _msFrameTime;
@@ -71,6 +74,35 @@ public class Raycaster
         _form.KeyDown += KeyPressedDown;
         _form.KeyUp += KeyPressedUp;
         _canvas.Paint += Draw;
+
+        formView view = new();
+        PictureBox viewCanvas = new();
+        viewCanvas.Dock = DockStyle.Fill;
+        viewCanvas.BackColor = Color.Gray;
+        view.Controls.Add(viewCanvas);
+        viewCanvas.Paint += viewCanvasDraw;
+        _viewCanvas = viewCanvas;
+        view.Show();
+    }
+
+    private List<float> _distances = new();
+    private SolidBrush greyBrush = new(Color.Orange);
+    private void viewCanvasDraw(object? sender, PaintEventArgs e)
+    {
+        ReadOnlySpan<float> distances = CollectionsMarshal.AsSpan(_distances);
+
+        if (distances.Length == 0) return;
+
+        float width = _viewCanvas.Width / distances.Length;
+
+        for(int i = 0; i < distances.Length; i++)
+        {
+            int height = (int)(1000 / distances[i]);
+            e.Graphics.FillRectangle(greyBrush, new(i * (int)width, 100, (int)width, height));
+        }
+
+        e.Graphics.DrawString("Hello", new Font(FontFamily.GenericMonospace, 20), new SolidBrush(Color.Yellow), new Point(200, 200));
+        _distances.Clear();
     }
 
     private void KeyPressedUp(object? sender, KeyEventArgs e)
@@ -130,7 +162,7 @@ public class Raycaster
     }
 
 
-    private void Invalidate() => _canvas.Refresh();
+    private void Invalidate() { _canvas.Refresh(); _viewCanvas.Refresh(); }
 
     private void GameLoop(object? sender, ElapsedEventArgs e)
     {
@@ -200,13 +232,14 @@ public class Raycaster
         PointF endPoint = new PointF(startPoint.X + (_playerDeltaX * 5), startPoint.Y + ( 5 * _playerDeltaY));
         e.Graphics.DrawLine(directionPen, startPoint, endPoint);
 
+        if (_distances.Count != 0) return;
 
         for(var i = -0.5f; i < 0.5f; i += 0.1f)
         {
-            DrawRay(e.Graphics, startPoint, new((float)Math.Cos((double)_playerAngle + i) * 5, (float)Math.Sin((double)_playerAngle + i) * 5));
+            _distances.Add(DrawRay(e.Graphics, startPoint, new((float)Math.Cos((double)_playerAngle + i) * 5, (float)Math.Sin((double)_playerAngle + i) * 5)));
         }
 
-        e.Graphics.DrawString($"Player Delta: {_playerDeltaX}\nNew Delta: {(float)Math.Cos((double)_playerAngle + 1) * 5}\nAngle: {_playerAngle}\n", new Font(FontFamily.GenericMonospace, 20), new SolidBrush(Color.Orange), new Point(400, 300));
+        // e.Graphics.DrawString($"Player Delta: {_playerDeltaX}\nNew Delta: {(float)Math.Cos((double)_playerAngle + 1) * 5}\nAngle: {_playerAngle}\n", new Font(FontFamily.GenericMonospace, 20), new SolidBrush(Color.Orange), new Point(400, 300));
     }
 
     Pen green = new(Color.Green);
@@ -215,7 +248,7 @@ public class Raycaster
     private float DrawRay(Graphics g, PointF start, Vec2 delta)
     {
         ReadOnlySpan<Rectangle> rects = CollectionsMarshal.AsSpan(walls);
-        float max = 50f;
+        float max = 100f;
         // Algorithm for mitigating amount of checks
         // DDA?
 
@@ -229,7 +262,7 @@ public class Raycaster
                 {
                     // Draw line to the wall
                     g.DrawLine(red, start, point);
-                    return 0f;
+                    return j;
                 }
             }
         }
