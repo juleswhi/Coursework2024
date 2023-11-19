@@ -20,7 +20,6 @@ public class Physics
     private const float _dt = 1 / FPS;
     private double accumulator = 0;
 
-
     public static PhysicsObject ActiveObject;
 
     public static readonly List<aShader> ListShaders = new List<aShader>();
@@ -87,7 +86,7 @@ public class Physics
             Max = new Vec2 { X = end.X, Y = end.Y }
         };
         PhysicsMath.CorrectBoundingBox(ref oAabb);
-        var obj = new PhysicsObject(oAabb, PhysicsObject.Type.Box, .95F, locked, shader, mass);
+        var obj = new PhysicsObject(oAabb, PhysicsObject.Type.Box, .0f, locked, shader, mass);
         ListStaticObjects.Add(obj);
         return obj;
     }
@@ -220,7 +219,7 @@ public class Physics
         }
 
         AddGravity(obj, dt);
-        obj.Velocity -= Friction * dt;
+        obj.Velocity -= Vec2.Normalize(obj.Velocity) * Friction;
 
         if (obj.Center.Y > 2000 || obj.Center.Y < -2000 || obj.Center.X > 2000 || obj.Center.X < -2000)
         {

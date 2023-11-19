@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\FormsLib\FormsLib.csproj" />
     <ProjectReference Include="..\AuthenticationLib\AuthenticationLib.csproj" />
+    <ProjectReference Include="..\RayEngine\RayEngine.csproj" />
     <ProjectReference Include="..\WinFormsPhysicsEngine\PhysicsEngine.csproj" />
   </ItemGroup>
 

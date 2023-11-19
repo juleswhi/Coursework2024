@@ -10,7 +10,8 @@
         "dependencies": {
           "AuthenticationLib": "1.0.0",
           "FormsLib": "1.0.0",
-          "PhysicsEngine": "1.0.0"
+          "PhysicsEngine": "1.0.0",
+          "RayEngine": "1.0.0"
         },
         "runtime": {
           "DesktopUI.dll": {}
@@ -33,6 +34,14 @@
         "runtime": {
           "PhysicsEngine.dll": {}
         }
+      },
+      "RayEngine/1.0.0": {
+        "dependencies": {
+          "PhysicsEngine": "1.0.0"
+        },
+        "runtime": {
+          "RayEngine.dll": {}
+        }
       }
     }
   },
@@ -53,6 +62,11 @@
       "sha512": ""
     },
     "PhysicsEngine/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RayEngine/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

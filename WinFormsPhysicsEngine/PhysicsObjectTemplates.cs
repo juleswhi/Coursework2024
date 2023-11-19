@@ -33,8 +33,8 @@ public static class ObjectTemplates
         return oPhysicsObject;
     }
 
-    public static PhysicsObject CreatePlayer() =>
-        CreateRigidbody(200, 200, 30);
+    public static PlatformerRigidbody CreatePlayer(ref Physics phys, Vec2 startLocation) =>
+        new PlatformerRigidbody(CreateRigidbody(startLocation.X, startLocation.Y, 30), phys);
 
     public static PhysicsObject CreateMedBall(float originX, float originY)
     {

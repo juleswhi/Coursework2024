@@ -24,6 +24,9 @@ public struct Vec2
     public PointF ToPointF() =>
         new PointF((int)X, (int)Y);
 
+    public (float, float) ToTuple() =>
+        (X, Y);
+
     
     public static float DotProduct(Vec2 left, Vec2 right)
     {

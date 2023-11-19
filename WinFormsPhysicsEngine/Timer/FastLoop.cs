@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace PhysicsEngine;
 
-namespace PhysicsEngine;
-
-internal class FastLoop
+public class FastLoop
 {
     PreciseTimer _timer = new PreciseTimer();
     public delegate void LoopCallback(double elapsedTime);
