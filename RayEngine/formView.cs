@@ -15,6 +15,7 @@ namespace RayEngine
         public formView()
         {
             InitializeComponent();
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
         }
     }
 }

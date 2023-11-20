@@ -66,3 +66,5 @@ C:\Users\i hate windows\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7
 C:\Users\i hate windows\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\PhysicsEngine.pdb
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\RayEngine.dll
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\RayEngine.pdb
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\RayEngine.dll
+C:\Users\i hate windows\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\RayEngine.pdb

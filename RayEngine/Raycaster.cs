@@ -1,4 +1,5 @@
-﻿using static System.Math;
+﻿#define Debug
+using static System.Math;
 using RayEngine.Levels;
 using PhysicsEngine;
 using System.Diagnostics;
@@ -71,8 +72,6 @@ public class Raycaster
         _form.Controls.Add(canvas);
         _canvas = canvas;
         // Events
-        _form.KeyDown += KeyPressedDown;
-        _form.KeyUp += KeyPressedUp;
         _canvas.Paint += Draw;
 
         formView view = new();
@@ -82,6 +81,9 @@ public class Raycaster
         view.Controls.Add(viewCanvas);
         viewCanvas.Paint += viewCanvasDraw;
         _viewCanvas = viewCanvas;
+
+        view.KeyDown += KeyPressedDown;
+        view.KeyUp += KeyPressedUp;
         view.Show();
     }
 
@@ -98,10 +100,9 @@ public class Raycaster
         for(int i = 0; i < distances.Length; i++)
         {
             int height = (int)(1000 / distances[i]);
-            e.Graphics.FillRectangle(greyBrush, new(i * (int)width, 100, (int)width, height));
+            e.Graphics.FillRectangle(greyBrush, new(i * (int)width, 200 - (int)( 0.5 * height ), (int)width, height));
         }
 
-        e.Graphics.DrawString("Hello", new Font(FontFamily.GenericMonospace, 20), new SolidBrush(Color.Yellow), new Point(200, 200));
         _distances.Clear();
     }
 
@@ -200,6 +201,7 @@ public class Raycaster
 
     List<Rectangle> walls = new();
 
+
     private void Draw(object? sender, PaintEventArgs e)
     {
         e.Graphics.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceOver;
@@ -218,23 +220,31 @@ public class Raycaster
             int y = (i / 8) * rectangleSize;
 
             Rectangle rect = new(x, y, rectangleSize - 2, rectangleSize - 2);
-            if (map[i] == 1) { 
+            if (map[i] == 1) {
+                #if Debug
                 e.Graphics.FillRectangle(new SolidBrush(Color.WhiteSmoke), rect);
+                #endif
                 walls.Add(rect);
             }
+            #if Debug
             else
                 e.Graphics.FillRectangle(new SolidBrush(Color.Black), rect);
+            #endif
         }
 
+        #if Debug
         e.Graphics.FillRectangle(new SolidBrush(Color.Red), _player);
+        #endif
         Pen directionPen = new Pen(Color.White);
         PointF startPoint = new Vec2(_player.Left + ( 0.5f * _player.Width), _player.Top + ( 0.5f * _player.Height)).ToPointF();
         PointF endPoint = new PointF(startPoint.X + (_playerDeltaX * 5), startPoint.Y + ( 5 * _playerDeltaY));
+        #if DEBUG
         e.Graphics.DrawLine(directionPen, startPoint, endPoint);
+        #endif
 
         if (_distances.Count != 0) return;
 
-        for(var i = -0.5f; i < 0.5f; i += 0.1f)
+        for(var i = -0.5f; i < 0.5f; i += 0.05f)
         {
             _distances.Add(DrawRay(e.Graphics, startPoint, new((float)Math.Cos((double)_playerAngle + i) * 5, (float)Math.Sin((double)_playerAngle + i) * 5)));
         }
@@ -247,6 +257,7 @@ public class Raycaster
 
     private float DrawRay(Graphics g, PointF start, Vec2 delta)
     {
+        g.DrawString(start.X.ToString() + " " + start.Y.ToString(), new Font(FontFamily.GenericMonospace, 20), new SolidBrush(Color.Aquamarine), new PointF(200, 200));
         ReadOnlySpan<Rectangle> rects = CollectionsMarshal.AsSpan(walls);
         float max = 100f;
         // Algorithm for mitigating amount of checks
@@ -261,13 +272,17 @@ public class Raycaster
                 if (rects[j].X <= point.X && point.X < rects[j].X + rects[j].Width && rects[j].Y < point.Y && point.Y < rects[j].Y + walls[j].Height)
                 {
                     // Draw line to the wall
+#if Debug
                     g.DrawLine(red, start, point);
+#endif
                     return j;
                 }
             }
         }
 
+#if Debug
         g.DrawLine(green, start, new PointF(start.X + (delta.X * max), start.Y + (delta.Y * max)));
+#endif
         return max;
     }
 
