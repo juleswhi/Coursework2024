@@ -48,7 +48,7 @@ public class Raycaster
     SolidBrush brushRed = new(Color.Red);
 
     SolidBrush brushDarkGray = new(Color.FromArgb(255, 169, 169, 169));
-    SolidBrush brushLightGray = new(Color.FromArgb(255, 211, 211, 211));
+    SolidBrush brushLightGray = new(Color.FromArgb(255, 240, 240, 240));
 
 
     #region Constructors
@@ -204,7 +204,7 @@ public class Raycaster
         float rowSize = (float)Sqrt(map.Length);
         if (rowSize % 1 != 0) return;
 
-        int rectangleSize = ( 400 / 8 ) ;
+        int rectangleSize = ( 400 / 8 );
         for (int i = 0; i < map.Length; i++)
         {
             int x = (i % (int)rowSize) * rectangleSize;
@@ -212,9 +212,7 @@ public class Raycaster
 
             Rectangle rect = new(x, y, rectangleSize, rectangleSize);
             if (map[i] == 1)
-            {
-                _walls.Add((rect, Color.Black));
-            }
+                _walls.Add((rect, Color.Gray));
             else if (map[i] == 2)
                 _walls.Add((rect, Color.Green));
         }
@@ -253,26 +251,38 @@ public class Raycaster
         
         if (distances.Count == 0) return;
 
-        // float width = _viewCanvas.Width / distances.Count;
+        float width = _viewCanvas.Width / distances.Count;
 
-        float width = 3.9800995025f;
         for(int i = 0; i < distances.Count; i++)
         {
             int height = (int)(5000 / distances[i].Item1);
             int intensity = (int)(255 / distances[i].Item1);
 
-            intensity = Math.Clamp(intensity + 50, 0, 255);
-            Color original = distances[i].Item2;
-            Color modifiedColor = Color.FromArgb(255, original.R, original.G, original.B);
-            // _brush.Color = Color.FromArgb(255, intensity, intensity, intensity);
+            intensity = Math.Clamp(intensity + 100, 0, 255);
 
+            if (distances[i].Item2 == Color.Green)
+            {
+                _brush.Color = Color.FromArgb(255, 0, intensity, 0);
+            }
 
-            _brush.Color = modifiedColor;
+            else if (distances[i].Item2 == Color.Gray)
+            {
+                _brush.Color = Color.FromArgb(255, intensity, intensity, intensity);
+            }
+
             e.Graphics.FillRectangle(_brush, new(i * (int)width + 75, ( _viewCanvas.Height / 2 ) - (int)( 0.5 * height ), (int)width, height));
         }
+
+        
+        for(int i = 0; i < bullets.Count; i++)
+        {
+            e.Graphics.DrawLine(penRed, new(_viewCanvas.Width / 2 - (197 / 2), _viewCanvas.Bottom), new(_viewCanvas.Width / 2 - (197 / 2), _viewCanvas.Top));
+        }
+        
+        e.Graphics.FillRectangle(brushRed, new(new Point(_viewCanvas.Width / 2 - ( 197 / 2), _viewCanvas.Bottom - 100), new Size(100, 100)));
+
     }
 
-    
     private (float, Color) DrawRay(PointF start, Vec2 delta)
     {
         ReadOnlySpan<(Rectangle, Color)> rects = CollectionsMarshal.AsSpan(_walls);
@@ -294,5 +304,10 @@ public class Raycaster
         return (max, Color.Gray);
     }
 
+    private List<(float, Color)> bullets = new();
 
+    private void Fire()
+    {
+        bullets.Add(DrawRay(new Vec2(_player.Left + (0.5f * _player.Width), _player.Top + (0.5f * _player.Height)).ToPointF(), new(_playerDeltaX, _playerDeltaY)));
+    }
    }
