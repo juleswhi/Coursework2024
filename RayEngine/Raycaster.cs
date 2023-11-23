@@ -7,17 +7,21 @@ using System.Timers;
 using System.Runtime.InteropServices.Marshalling;
 using System.Runtime.InteropServices;
 
+using static RayEngine.ShaderType;
+
 namespace RayEngine;
 
 public class Raycaster
 {
-    private Form _form;
-    private PictureBox _canvas;
+    private Form _overheadForm;
+    private PictureBox _overheadCanvas;
+
     private FastLoop _fastLoop;
     private Stopwatch _stopwatch = new();
+    private Stopwatch _gunTimer = new();
 
-    private formView _view;
-    private PictureBox _viewCanvas;
+    private formView _gameForm;
+    private PictureBox _gameCanvas;
 
     private System.Timers.Timer _timer;
 
@@ -40,9 +44,11 @@ public class Raycaster
     bool _movingLeft = false;
     bool _movingRight = false;
 
+    private bool _isShooting = false;
+    private bool _shootLock = true;
     private Bitmap _gun = Materials.gun;
 
-    List<(Rectangle, Color)> _walls = new();
+    List<(Rectangle, ShaderType)> _walls = new();
     private SolidBrush _brush = new(Color.Gray);
     Pen penGreen = new(Color.Green);
     Pen penRed = new(Color.Red);
@@ -58,7 +64,7 @@ public class Raycaster
     public Raycaster(Form form, Level level)
     {
         #pragma warning disable
-        _form = form;
+        _overheadForm = form;
         InitialiseForm();
 #pragma warning enable
 
@@ -69,41 +75,44 @@ public class Raycaster
         _playerDeltaX = (float)Math.Cos(_playerAngle) * 5;
         _playerDeltaY = (float)Math.Sin(_playerAngle) * 5;
 
-        // Timer
-        //_timer = new(1);
-        //_timer.Elapsed += GameLoop;
-        //_timer.Start();
-
         CreateMap(level.Map.AsSpan());
+        CreateEnemy();
 
         _fastLoop = new(GameLoop);
         _stopwatch.Start();
+        _gunTimer.Start();
     }
 
     private void InitialiseForm()
     {
 
-#if Debug
+#if debug
+
         formView formView = new();
         PictureBox canvas = new();
         canvas.Dock = DockStyle.Fill;
         canvas.BackColor = Color.Gray;
         formView.Controls.Add(canvas);
-        _canvas = canvas;
-        _canvas.Paint += Draw;
+        _overheadCanvas = canvas;
+        _overheadCanvas.Paint += DrawOverhead;
         formView.Show();
+
 #endif
 
 
         PictureBox viewCanvas = new();
         viewCanvas.Dock = DockStyle.Fill;
         viewCanvas.BackColor = Color.Gray;
-        _form.Controls.Add(viewCanvas);
+        _overheadForm.Controls.Add(viewCanvas);
         viewCanvas.Paint += viewCanvasDraw;
-        _viewCanvas = viewCanvas;
+        _gameCanvas = viewCanvas;
 
-        _form.KeyDown += KeyPressedDown;
-        _form.KeyUp += KeyPressedUp;
+        _overheadForm.KeyDown += KeyPressedDown;
+        _overheadForm.KeyUp += KeyPressedUp;
+    }
+
+    private void DrawOverhead(object? sender, PaintEventArgs e)
+    {
     }
 
     #endregion
@@ -161,6 +170,11 @@ public class Raycaster
                 _playerDeltaX = (float)Math.Cos((double)_playerAngle) * 5;
                 _playerDeltaY = (float)Math.Sin((double)_playerAngle) * 5;
                 break;
+            case Keys.Enter:
+            case Keys.Space:
+                if(!_shootLock)
+                    _isShooting = true;
+                break;
             default:
                 break;
         }
@@ -172,7 +186,7 @@ public class Raycaster
     private void Invalidate() { 
         // _canvas.Refresh(); 
          
-        _viewCanvas.Refresh(); 
+        _gameCanvas.Refresh(); 
     }
 
     private void GameLoop(object? sender, ElapsedEventArgs e)
@@ -184,7 +198,7 @@ public class Raycaster
     private void GameLoop(double elapsedTime)
     {
         Move();
-        if(_stopwatch.ElapsedMilliseconds - _frameTime > 1000 / 60)
+        if (_stopwatch.ElapsedMilliseconds - _frameTime > 1000 / 60)
         {
             Render();
         }
@@ -216,14 +230,28 @@ public class Raycaster
 
             Rectangle rect = new(x, y, rectangleSize, rectangleSize);
             if (map[i] == 1)
-                _walls.Add((rect, Color.Gray));
+                _walls.Add((rect, BRICK));
             else if (map[i] == 2)
-                _walls.Add((rect, Color.Green));
+                _walls.Add((rect, DOOR));
         }
     }
 
+    private void CreateEnemy()
+    {
+        Rectangle rect = new(new Point(150, 150), new Size(10, 10));
+
+        _walls.Add((rect, ENEMY));
+    }
+
+    private bool ShouldRenderBullet = false;
     private void Render()
     {
+        if (_gunTimer.Elapsed.Milliseconds > 500)
+        {
+            _shootLock = false;
+            ShouldRenderBullet = false;
+        }
+
         _frameTime = _stopwatch.ElapsedMilliseconds;
         Invalidate();
         _msPerDrawCycle = _stopwatch.ElapsedMilliseconds - _frameTime;
@@ -242,52 +270,67 @@ public class Raycaster
         e.Graphics.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.Half;
         e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighSpeed;
 
+        e.Graphics.FillRectangle(brushLightGray, new(75, 0, _gameCanvas.Width - 197, _gameCanvas.Height / 2));
+        e.Graphics.FillRectangle(brushDarkGray, new(75, _gameCanvas.Height / 2, _gameCanvas.Width - 197, _gameCanvas.Height / 2));
 
-        e.Graphics.FillRectangle(brushLightGray, new(75, 0, _viewCanvas.Width - 197, _viewCanvas.Height / 2));
-        e.Graphics.FillRectangle(brushDarkGray, new(75, _viewCanvas.Height / 2, _viewCanvas.Width - 197, _viewCanvas.Height / 2));
-
-        List<(float, Color)> distances = new();
+        List<Ray> rays = new();
 
         PointF start = new Vec2(_player.Left + (0.5f * _player.Width), _player.Top + (0.5f * _player.Height)).ToPointF();
 
         for (float i = -0.5f; i < 0.5f; i += 0.005f)
         {
-            distances.Add(DrawRay(start, new((float)Math.Cos((double)_playerAngle + i) * 5, (float)Math.Sin((double)_playerAngle + i) * 5)));
+            rays.Add(DrawRay(start, new((float)Math.Cos((double)_playerAngle + i) * 5, (float)Math.Sin((double)_playerAngle + i) * 5)));
         }
         
-        if (distances.Count == 0) return;
+        if (rays.Count == 0) return;
 
-        float width = _viewCanvas.Width / distances.Count;
+        float width = _gameCanvas.Width / rays.Count;
 
-        for(int i = 0; i < distances.Count; i++)
+        for(int i = 0; i < rays.Count; i++)
         {
-            int height = (int)(5000 / distances[i].Item1);
-            int intensity = (int)(255 / distances[i].Item1);
+            int height = (int)(5000 / rays[i].Distance);
+            int intensity = (int)(255 / rays[i].Distance);
 
             intensity = Math.Clamp(intensity + 100, 0, 255);
 
-            if (distances[i].Item2 == Color.Green)
+            switch (rays[i].Shader)
             {
-                _brush.Color = Color.FromArgb(255, 0, intensity, 0);
+                case BRICK:
+                    e.Graphics.DrawImage(_brickSlices[rays[i].Slice], new Rectangle(i * (int)width + 75, (_gameCanvas.Height / 2) - (int)(0.5 * height), (int)width, height));
+                    break;
+                case DOOR:
+                    _brush.Color = Color.FromArgb(255, intensity, intensity, intensity);
+                    e.Graphics.FillRectangle(_brush, new(i * (int)width + 75, (_gameCanvas.Height / 2) - (int)(0.5 * height), (int)width, height));
+                    break;
+                case ENEMY:
+                    _brush.Color = Color.ForestGreen;
+                    e.Graphics.FillRectangle(_brush, new(i * (int)width + 75, (_gameCanvas.Height / 2) - (int)(0.5 * height), (int)width, height));
+                    break;
+                case VOID:
+                    break;
             }
 
-            else if (distances[i].Item2 == Color.Gray)
-            {
-                _brush.Color = Color.FromArgb(255, intensity, intensity, intensity);
-            }
-
-            // e.Graphics.FillRectangle(_brush, new(i * (int)width + 75, ( _viewCanvas.Height / 2 ) - (int)( 0.5 * height ), (int)width, height));
-            e.Graphics.DrawImage(_brickSlices[i], new Rectangle(i * (int)width + 75, (_viewCanvas.Height / 2) - (int)(0.5 * height), (int)width, height));
         }
 
+        if (_isShooting)
+        {
+            _isShooting = false;
+            _shootLock = true;
+            _gunTimer.Restart();
+            ShouldRenderBullet = true;
+        }
+
+        if(ShouldRenderBullet)
+            e.Graphics.FillRectangle(brushGreen, new(new((_gameCanvas.Width / 2 ) - 30, _gameCanvas.Bottom - (int)(_gameCanvas.Height * 0.5)), new Size(20, _gameCanvas.Height)));
         
-        
-        e.Graphics.DrawImage(_gun, new Rectangle(new Point(_viewCanvas.Width / 2 - ( 197 / 2), _viewCanvas.Bottom - 100), new Size(150, 150)));
+        e.Graphics.DrawImage(_gun, new Rectangle(new Point(_gameCanvas.Width / 2 - ( 197 / 2), _gameCanvas.Bottom - 100), new Size(150, 150)));
+
+        // e.Graphics.DrawString(_isShooting.ToString() + "\n" + _shootLock.ToString() + "\n" + _gunTimer.Elapsed.Seconds.ToString(), new Font(FontFamily.GenericMonospace, 20), brushGreen, new Point(100, 100));
     }
 
-    private (float, Color) DrawRay(PointF start, Vec2 delta)
+    private Ray DrawRay(PointF start, Vec2 delta)
     {
-        ReadOnlySpan<(Rectangle, Color)> rects = CollectionsMarshal.AsSpan(_walls);
+        ReadOnlySpan<(Rectangle, ShaderType)> rects = CollectionsMarshal.AsSpan(_walls);
         float max = 95f;
 
         for(float i = 0; i < max; i += 0.5f)
@@ -298,21 +341,19 @@ public class Raycaster
                 // Check if inside or touching a wall
                 if (rects[j].Item1.X <= point.X && point.X < rects[j].Item1.X + rects[j].Item1.Width && rects[j].Item1.Y < point.Y && point.Y < rects[j].Item1.Y + rects[j].Item1.Height)
                 {
-                    return (i, rects[j].Item2);
+                    float hit = point.X - rects[j].Item1.X;
+                    int sliceIndex = (int)(hit * _brickSlices.Count) % _brickSlices.Count;
+                    return new Ray(i, sliceIndex, rects[j].Item2);
                 }
             }
         }
 
-        return (max, Color.Gray);
+        return new(max, -1, VOID);
     }
+
+
 
     private List<(float, Color)> bullets = new();
-
-    private void Fire()
-    {
-        bullets.Add(DrawRay(new Vec2(_player.Left + (0.5f * _player.Width), _player.Top + (0.5f * _player.Height)).ToPointF(), new(_playerDeltaX, _playerDeltaY)));
-    }
-
 
     private Bitmap _bricks = Materials.Bricks_001;
     private List<Bitmap> DrawTexture()

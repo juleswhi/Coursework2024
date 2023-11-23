@@ -2,4 +2,4 @@
 
 namespace RayEngine;
 
-internal record Ray(Vec2 Origin, Vec2 Direction);
+internal record Ray(float Distance, int Slice, ShaderType Shader);
