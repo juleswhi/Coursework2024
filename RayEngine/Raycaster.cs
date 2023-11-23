@@ -28,6 +28,7 @@ public class Raycaster
     private long _frameTime;
 
     private Level _level;
+    private List<Bitmap> _brickSlices = new();
 
     Rectangle _player;
 
@@ -38,6 +39,8 @@ public class Raycaster
     bool _movingDown = false;
     bool _movingLeft = false;
     bool _movingRight = false;
+
+    private Bitmap _gun = Materials.gun;
 
     List<(Rectangle, Color)> _walls = new();
     private SolidBrush _brush = new(Color.Gray);
@@ -201,6 +204,7 @@ public class Raycaster
 
     private void CreateMap(ReadOnlySpan<int> map)
     {
+        _brickSlices =  DrawTexture();
         float rowSize = (float)Sqrt(map.Length);
         if (rowSize % 1 != 0) return;
 
@@ -227,6 +231,8 @@ public class Raycaster
         _msThisFrame = _stopwatch.ElapsedMilliseconds;
         _msFrameTime = _msThisFrame - _msLastFrame;
     }
+
+
 
     private void viewCanvasDraw(object? sender, PaintEventArgs e)
     {
@@ -270,17 +276,13 @@ public class Raycaster
                 _brush.Color = Color.FromArgb(255, intensity, intensity, intensity);
             }
 
-            e.Graphics.FillRectangle(_brush, new(i * (int)width + 75, ( _viewCanvas.Height / 2 ) - (int)( 0.5 * height ), (int)width, height));
+            // e.Graphics.FillRectangle(_brush, new(i * (int)width + 75, ( _viewCanvas.Height / 2 ) - (int)( 0.5 * height ), (int)width, height));
+            e.Graphics.DrawImage(_brickSlices[i], new Rectangle(i * (int)width + 75, (_viewCanvas.Height / 2) - (int)(0.5 * height), (int)width, height));
         }
 
         
-        for(int i = 0; i < bullets.Count; i++)
-        {
-            e.Graphics.DrawLine(penRed, new(_viewCanvas.Width / 2 - (197 / 2), _viewCanvas.Bottom), new(_viewCanvas.Width / 2 - (197 / 2), _viewCanvas.Top));
-        }
         
-        e.Graphics.FillRectangle(brushRed, new(new Point(_viewCanvas.Width / 2 - ( 197 / 2), _viewCanvas.Bottom - 100), new Size(100, 100)));
-
+        e.Graphics.DrawImage(_gun, new Rectangle(new Point(_viewCanvas.Width / 2 - ( 197 / 2), _viewCanvas.Bottom - 100), new Size(150, 150)));
     }
 
     private (float, Color) DrawRay(PointF start, Vec2 delta)
@@ -312,7 +314,17 @@ public class Raycaster
     }
 
 
-    private void DrawTexture()
+    private Bitmap _bricks = Materials.Bricks_001;
+    private List<Bitmap> DrawTexture()
     {
+        List<Bitmap> images = new();
+        for(int i = 0; i < _bricks.Height; i++)
+        {
+            Rectangle rect = new(i, 0, 1, _bricks.Height);
+            Bitmap clone = _bricks.Clone(rect, _bricks.PixelFormat);
+            images.Add(clone);
+        }
+
+        return images;
     }
 }

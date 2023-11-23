@@ -6,6 +6,8 @@ namespace FormsLib.Menus;
 
 public partial class LoginMenu : Form
 {
+    
+
     List<MenuOption> options = new();
     int index = 0;
     public LoginMenu()
@@ -16,15 +18,29 @@ public partial class LoginMenu : Form
                 options.Add((control as MenuOption)!);
 
         options[2].Selected = true;
-
     }
 
     private void LoginMenu_KeyDown(object? sender, KeyEventArgs e)
     {
-        if (index < 0) index = options.Count - 1;
-        foreach (var op in options) op.Selected = false;
-        options[index].Selected = true;
-        index--;
+
+        switch(e.KeyValue)
+        {
+            /*
+            case Keys.Up:
+                if (index == options.Count) index = 0;
+                foreach (var op in options) op.Selected = false;
+                index++;
+                break;
+            */
+            case 27:
+            case 91:
+            case 65:
+                if (index < 0) index = options.Count - 1;
+                foreach (var op in options) op.Selected = false;
+                options[index].Selected = true;
+                index--;
+                break;
+        }
     }
 
     private void btnLogin_Click(object sender, EventArgs e)
