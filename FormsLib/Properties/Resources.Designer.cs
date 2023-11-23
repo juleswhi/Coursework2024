@@ -83,6 +83,16 @@ namespace FormsLib.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Bricks_001 {
+            get {
+                object obj = ResourceManager.GetObject("Bricks_001", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Death {
             get {
                 object obj = ResourceManager.GetObject("Death", resourceCulture);
@@ -126,6 +136,16 @@ namespace FormsLib.Properties {
         internal static System.Drawing.Bitmap MenuButton {
             get {
                 object obj = ResourceManager.GetObject("MenuButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap retro_sun {
+            get {
+                object obj = ResourceManager.GetObject("retro_sun", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

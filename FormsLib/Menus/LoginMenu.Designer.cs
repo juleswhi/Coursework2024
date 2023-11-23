@@ -28,89 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblLogin = new Label();
-            txtBoxUsername = new TextBox();
-            txtBoxPassword = new TextBox();
-            btnLogin = new Button();
-            lblUsernameError = new Label();
-            btnRegister = new Button();
+            menuOption1 = new Controls.MenuOption();
+            menuOption2 = new Controls.MenuOption();
+            menuOption3 = new Controls.MenuOption();
+            label1 = new Label();
             SuspendLayout();
             // 
-            // lblLogin
+            // menuOption1
             // 
-            lblLogin.Anchor = AnchorStyles.None;
-            lblLogin.AutoSize = true;
-            lblLogin.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point);
-            lblLogin.ForeColor = Color.FromArgb(64, 64, 64);
-            lblLogin.Location = new Point(116, 120);
-            lblLogin.Name = "lblLogin";
-            lblLogin.Size = new Size(96, 37);
-            lblLogin.TabIndex = 0;
-            lblLogin.Text = "Login";
+            menuOption1.DefaultColor = Color.Yellow;
+            menuOption1.Location = new Point(335, 101);
+            menuOption1.Name = "menuOption1";
+            menuOption1.OptionText = "Play Quiz";
+            menuOption1.Selected = false;
+            menuOption1.Size = new Size(107, 32);
+            menuOption1.TabIndex = 0;
+            menuOption1.Text = "Play Quit";
+            menuOption1.KeyDown += LoginMenu_KeyDown;
             // 
-            // txtBoxUsername
+            // menuOption2
             // 
-            txtBoxUsername.Anchor = AnchorStyles.None;
-            txtBoxUsername.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBoxUsername.Location = new Point(116, 172);
-            txtBoxUsername.Name = "txtBoxUsername";
-            txtBoxUsername.Size = new Size(114, 22);
-            txtBoxUsername.TabIndex = 1;
+            menuOption2.DefaultColor = Color.Yellow;
+            menuOption2.Location = new Point(344, 156);
+            menuOption2.Name = "menuOption2";
+            menuOption2.OptionText = "Play Games";
+            menuOption2.Selected = false;
+            menuOption2.Size = new Size(83, 68);
+            menuOption2.TabIndex = 1;
+            menuOption2.Text = "menuOption2";
             // 
-            // txtBoxPassword
+            // menuOption3
             // 
-            txtBoxPassword.AcceptsReturn = true;
-            txtBoxPassword.AcceptsTab = true;
-            txtBoxPassword.Anchor = AnchorStyles.None;
-            txtBoxPassword.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBoxPassword.Location = new Point(116, 201);
-            txtBoxPassword.Name = "txtBoxPassword";
-            txtBoxPassword.Size = new Size(114, 22);
-            txtBoxPassword.TabIndex = 2;
+            menuOption3.DefaultColor = Color.Yellow;
+            menuOption3.Location = new Point(334, 248);
+            menuOption3.Name = "menuOption3";
+            menuOption3.OptionText = "Settings";
+            menuOption3.Selected = false;
+            menuOption3.Size = new Size(93, 34);
+            menuOption3.TabIndex = 2;
+            menuOption3.Text = "menuOption3";
             // 
-            // btnLogin
+            // label1
             // 
-            btnLogin.Anchor = AnchorStyles.None;
-            btnLogin.Location = new Point(116, 230);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(114, 23);
-            btnLogin.TabIndex = 3;
-            btnLogin.Text = "Login";
-            btnLogin.UseVisualStyleBackColor = true;
-            btnLogin.Click += btnLogin_Click;
-            // 
-            // lblUsernameError
-            // 
-            lblUsernameError.AutoSize = true;
-            lblUsernameError.ForeColor = Color.Red;
-            lblUsernameError.Location = new Point(95, 276);
-            lblUsernameError.Name = "lblUsernameError";
-            lblUsernameError.Size = new Size(0, 15);
-            lblUsernameError.TabIndex = 4;
-            // 
-            // btnRegister
-            // 
-            btnRegister.Anchor = AnchorStyles.None;
-            btnRegister.Location = new Point(116, 259);
-            btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(114, 23);
-            btnRegister.TabIndex = 5;
-            btnRegister.Text = "Register";
-            btnRegister.UseVisualStyleBackColor = true;
-            btnRegister.Click += btnRegister_Click;
+            label1.AutoSize = true;
+            label1.ForeColor = SystemColors.ButtonFace;
+            label1.Location = new Point(139, 258);
+            label1.Name = "label1";
+            label1.Size = new Size(38, 15);
+            label1.TabIndex = 3;
+            label1.Text = "label1";
             // 
             // LoginMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(206, 222, 189);
-            ClientSize = new Size(349, 450);
-            Controls.Add(btnRegister);
-            Controls.Add(lblUsernameError);
-            Controls.Add(btnLogin);
-            Controls.Add(txtBoxPassword);
-            Controls.Add(txtBoxUsername);
-            Controls.Add(lblLogin);
+            BackColor = Color.Black;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(777, 437);
+            Controls.Add(label1);
+            Controls.Add(menuOption3);
+            Controls.Add(menuOption2);
+            Controls.Add(menuOption1);
             Name = "LoginMenu";
             Text = "MainMenu";
             ResumeLayout(false);
@@ -119,11 +97,9 @@
 
         #endregion
 
-        private Label lblLogin;
-        private TextBox txtBoxUsername;
-        private TextBox txtBoxPassword;
-        private Button btnLogin;
-        private Label lblUsernameError;
-        private Button btnRegister;
+        private Controls.MenuOption menuOption1;
+        private Controls.MenuOption menuOption2;
+        private Controls.MenuOption menuOption3;
+        private Label label1;
     }
 }

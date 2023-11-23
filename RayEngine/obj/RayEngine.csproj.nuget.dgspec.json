@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\RayEngine\\RayEngine.csproj": {}
+    "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\RayEngine\\RayEngine.csproj": {}
   },
   "projects": {
-    "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\RayEngine\\RayEngine.csproj": {
+    "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\RayEngine\\RayEngine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\RayEngine\\RayEngine.csproj",
+        "projectUniqueName": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\RayEngine\\RayEngine.csproj",
         "projectName": "RayEngine",
-        "projectPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\RayEngine\\RayEngine.csproj",
-        "packagesPath": "C:\\Users\\i hate windows\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\RayEngine\\obj\\",
+        "projectPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\RayEngine\\RayEngine.csproj",
+        "packagesPath": "C:\\Users\\ayo mr white\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\RayEngine\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\i hate windows\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ayo mr white\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,8 +28,8 @@
           "net7.0-windows7.0": {
             "targetAlias": "net7.0-windows",
             "projectReferences": {
-              "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\WinFormsPhysicsEngine\\PhysicsEngine.csproj": {
-                "projectPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\WinFormsPhysicsEngine\\PhysicsEngine.csproj"
+              "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\WinFormsPhysicsEngine\\PhysicsEngine.csproj": {
+                "projectPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\WinFormsPhysicsEngine\\PhysicsEngine.csproj"
               }
             }
           }
@@ -66,25 +62,21 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\WinFormsPhysicsEngine\\PhysicsEngine.csproj": {
+    "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\WinFormsPhysicsEngine\\PhysicsEngine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\WinFormsPhysicsEngine\\PhysicsEngine.csproj",
+        "projectUniqueName": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\WinFormsPhysicsEngine\\PhysicsEngine.csproj",
         "projectName": "PhysicsEngine",
-        "projectPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\WinFormsPhysicsEngine\\PhysicsEngine.csproj",
-        "packagesPath": "C:\\Users\\i hate windows\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\WinFormsPhysicsEngine\\obj\\",
+        "projectPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\WinFormsPhysicsEngine\\PhysicsEngine.csproj",
+        "packagesPath": "C:\\Users\\ayo mr white\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\WinFormsPhysicsEngine\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\i hate windows\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ayo mr white\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -128,7 +120,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

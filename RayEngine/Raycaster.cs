@@ -310,4 +310,9 @@ public class Raycaster
     {
         bullets.Add(DrawRay(new Vec2(_player.Left + (0.5f * _player.Width), _player.Top + (0.5f * _player.Height)).ToPointF(), new(_playerDeltaX, _playerDeltaY)));
     }
-   }
+
+
+    private void DrawTexture()
+    {
+    }
+}
