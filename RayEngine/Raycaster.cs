@@ -1,5 +1,4 @@
-﻿#define DEBUG
-using static System.Math;
+﻿using static System.Math;
 using RayEngine.Levels;
 using PhysicsEngine;
 using System.Diagnostics;
@@ -13,14 +12,11 @@ namespace RayEngine;
 
 public class Raycaster
 {
-    private Form _overheadForm;
-    private PictureBox _overheadCanvas;
-
     private FastLoop _fastLoop;
     private Stopwatch _stopwatch = new();
     private Stopwatch _gunTimer = new();
 
-    private formView _gameForm;
+    private Form _gameForm;
     private PictureBox _gameCanvas;
 
     private System.Timers.Timer _timer;
@@ -48,10 +44,8 @@ public class Raycaster
     private bool _shootLock = true;
     private Bitmap _gun = Materials.gun;
 
-    List<(Rectangle, ShaderType)> _walls = new();
+    List<GameObject> _objects = new();
     private SolidBrush _brush = new(Color.Gray);
-    Pen penGreen = new(Color.Green);
-    Pen penRed = new(Color.Red);
 
     SolidBrush brushGreen = new(Color.Green);
     SolidBrush brushRed = new(Color.Red);
@@ -63,10 +57,8 @@ public class Raycaster
     #region Constructors
     public Raycaster(Form form, Level level)
     {
-        #pragma warning disable
-        _overheadForm = form;
+        _gameForm = form;
         InitialiseForm();
-#pragma warning enable
 
         _level = level;
 
@@ -85,37 +77,17 @@ public class Raycaster
 
     private void InitialiseForm()
     {
+        _gameCanvas  = new();
+        _gameCanvas.Dock = DockStyle.Fill;
+        _gameCanvas.BackColor = Color.Gray;
+        _gameForm.Controls.Add(_gameCanvas);
+        _gameCanvas.Paint += viewCanvasDraw;
 
-#if debug
-
-        formView formView = new();
-        PictureBox canvas = new();
-        canvas.Dock = DockStyle.Fill;
-        canvas.BackColor = Color.Gray;
-        formView.Controls.Add(canvas);
-        _overheadCanvas = canvas;
-        _overheadCanvas.Paint += DrawOverhead;
-        formView.Show();
-
-#endif
-
-
-        PictureBox viewCanvas = new();
-        viewCanvas.Dock = DockStyle.Fill;
-        viewCanvas.BackColor = Color.Gray;
-        _overheadForm.Controls.Add(viewCanvas);
-        viewCanvas.Paint += viewCanvasDraw;
-        _gameCanvas = viewCanvas;
-
-        _overheadForm.KeyDown += KeyPressedDown;
-        _overheadForm.KeyUp += KeyPressedUp;
+        _gameForm.KeyDown += KeyPressedDown;
+        _gameForm.KeyUp += KeyPressedUp;
     }
 
-    private void DrawOverhead(object? sender, PaintEventArgs e)
-    {
-    }
-
-    #endregion
+#endregion
 
     #region Keybinds
 
@@ -230,9 +202,9 @@ public class Raycaster
 
             Rectangle rect = new(x, y, rectangleSize, rectangleSize);
             if (map[i] == 1)
-                _walls.Add((rect, BRICK));
+                _objects.Add(new Wall(rect));
             else if (map[i] == 2)
-                _walls.Add((rect, DOOR));
+                _objects.Add(new Door(rect));
         }
     }
 
@@ -240,7 +212,7 @@ public class Raycaster
     {
         Rectangle rect = new(new Point(150, 150), new Size(10, 10));
 
-        _walls.Add((rect, ENEMY));
+        _objects.Add(new Enemy(rect));
     }
 
     private bool ShouldRenderBullet = false;
@@ -330,20 +302,20 @@ public class Raycaster
 
     private Ray DrawRay(PointF start, Vec2 delta)
     {
-        ReadOnlySpan<(Rectangle, ShaderType)> rects = CollectionsMarshal.AsSpan(_walls);
+        ReadOnlySpan<GameObject> rects = CollectionsMarshal.AsSpan(_objects);
         float max = 95f;
 
-        for(float i = 0; i < max; i += 0.5f)
+        for(float i = 0; i < max; i += 0.3f)
         {
             var point = new PointF(start.X + (delta.X * i), start.Y + (delta.Y * i));
             for (int j = 0; j < rects.Length; j++)
             {
                 // Check if inside or touching a wall
-                if (rects[j].Item1.X <= point.X && point.X < rects[j].Item1.X + rects[j].Item1.Width && rects[j].Item1.Y < point.Y && point.Y < rects[j].Item1.Y + rects[j].Item1.Height)
+                if (rects[j].Rectangle.X <= point.X && point.X < rects[j].Rectangle.X + rects[j].Rectangle.Width && rects[j].Rectangle.Y < point.Y && point.Y < rects[j].Rectangle.Y + rects[j].Rectangle.Height)
                 {
-                    float hit = point.X - rects[j].Item1.X;
+                    float hit = point.X - rects[j].Rectangle.X;
                     int sliceIndex = (int)(hit * _brickSlices.Count) % _brickSlices.Count;
-                    return new Ray(i, sliceIndex, rects[j].Item2);
+                    return new Ray(i, sliceIndex, rects[j].Shader);
                 }
             }
         }
@@ -351,9 +323,6 @@ public class Raycaster
         return new(max, -1, VOID);
     }
 
-
-
-    private List<(float, Color)> bullets = new();
 
     private Bitmap _bricks = Materials.Bricks_001;
     private List<Bitmap> DrawTexture()

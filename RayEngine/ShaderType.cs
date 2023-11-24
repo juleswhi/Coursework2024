@@ -1,9 +1,16 @@
 ﻿namespace RayEngine;
 
-internal enum ShaderType
+public enum ShaderType
 {
     BRICK,
     DOOR,
     ENEMY,
-    VOID
+    VOID,
+    DESIGNER_WALL,
+    DESIGNER_ENEMY,
+    DESIGNER_SELECTED_WALL,
+    DESIGNER_SELECTED_ENEMY,
+    DESIGNER_DOOR,
+    DESIGNER_SELECTED_DOOR
+
 }
