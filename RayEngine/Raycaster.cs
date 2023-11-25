@@ -27,7 +27,7 @@ public class Raycaster
     private long _msThisFrame;
     private long _frameTime;
 
-    private Level _level;
+    private LevelData _level;
     private List<Bitmap> _brickSlices = new();
 
     Rectangle _player;
@@ -60,7 +60,7 @@ public class Raycaster
         _gameForm = form;
         InitialiseForm();
 
-        var map = MapSerializer.Deserialize($"../../../{level}.txt");
+        _level = MapSerializer.Deserialize($"../../../{level}.txt");
 
 
         _player = new(Location.ToPoint(), new(10, 10));
@@ -68,7 +68,7 @@ public class Raycaster
         _playerDeltaX = (float)Math.Cos(_playerAngle) * 5;
         _playerDeltaY = (float)Math.Sin(_playerAngle) * 5;
 
-        CreateMap(map.Map);
+        CreateMap();
 
         _fastLoop = new(GameLoop);
         _stopwatch.Start();
@@ -188,23 +188,27 @@ public class Raycaster
         _player.Location = Location.ToPoint();
     }
 
-    private void CreateMap(ReadOnlySpan<int> map)
+    private void CreateMap()
     {
         _brickSlices =  DrawTexture();
-        float rowSize = (float)Sqrt(map.Length);
-        if (rowSize % 1 != 0) return;
 
-        int rectangleSize = ( 400 / 8 );
-        for (int i = 0; i < map.Length; i++)
+        int rectangleWidth = 400 / _level.MapWidth;
+        int rectangleHeight = 400 / _level.MapHeight;
+
+        for (int i = 0; i < _level.MapHeight; i++)
         {
-            int x = (i % (int)rowSize) * rectangleSize;
-            int y = (i / (int)rowSize) * rectangleSize;
+            for(int j = 0; j < _level.MapWidth; j++)
+            {
+                int x = j * rectangleWidth;
+                int y = i * rectangleHeight;
 
-            Rectangle rect = new(x, y, rectangleSize, rectangleSize);
-            if (map[i] == 1)
-                _objects.Add(new Wall(rect));
-            else if (map[i] == 2)
-                _objects.Add(new Door(rect));
+                Rectangle rect = new(x, y, rectangleWidth, rectangleHeight);
+                if (_level.Map[i,j] == 1)
+                    _objects.Add(new Wall(rect));
+                else if (_level.Map[i,j] == 2)
+                    _objects.Add(new Door(rect));
+
+            }
         }
     }
     private bool ShouldRenderBullet = false;

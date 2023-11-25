@@ -5,8 +5,8 @@ namespace Hash;
 
 public static class PasswordHasher
 {
-    public static string Hash(this string password)
-    {
+    public static string Hash(this string password) { 
+
         byte[] hashed;
         string hashedPassword;
 

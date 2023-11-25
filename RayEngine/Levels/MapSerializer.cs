@@ -7,9 +7,11 @@ namespace RayEngine.Levels;
 [Serializable]
 public class LevelData
 {
-    public int[] Map { get; set; }
+    public int[,] Map { get; set; }
+    public int MapWidth { get; set; }
+    public int MapHeight { get; set; }
     public List<Point> Enemies { get; set; }
-    public LevelData(int[] Map, List<Point> Enemies)
+    public LevelData(int[,] Map, List<Point> Enemies)
     {
         this.Map = Map;
         this.Enemies = Enemies;

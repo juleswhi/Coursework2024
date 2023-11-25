@@ -3,14 +3,14 @@ namespace RayEngine;
 
 public interface IDesigner
 {
-    public int MapIndex { get; set; } 
+    public (int, int) MapIndex { get; set; } 
 }
 
 public abstract class GameObject : IDesigner
 {
     public abstract Rectangle Rectangle { get; set; }
     public abstract ShaderType Shader { get; set; }
-    public int MapIndex { get; set; }
+    public (int, int) MapIndex { get; set; }
 }
 
 public class Wall : GameObject, IDesigner
