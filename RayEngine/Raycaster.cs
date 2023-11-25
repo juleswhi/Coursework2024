@@ -55,20 +55,20 @@ public class Raycaster
 
 
     #region Constructors
-    public Raycaster(Form form, Level level)
+    public Raycaster(Form form, string level)
     {
         _gameForm = form;
         InitialiseForm();
 
-        _level = level;
+        var map = MapSerializer.Deserialize($"../../../{level}.txt");
+
 
         _player = new(Location.ToPoint(), new(10, 10));
 
         _playerDeltaX = (float)Math.Cos(_playerAngle) * 5;
         _playerDeltaY = (float)Math.Sin(_playerAngle) * 5;
 
-        CreateMap(level.Map.AsSpan());
-        CreateEnemy();
+        CreateMap(map.Map);
 
         _fastLoop = new(GameLoop);
         _stopwatch.Start();
@@ -207,14 +207,6 @@ public class Raycaster
                 _objects.Add(new Door(rect));
         }
     }
-
-    private void CreateEnemy()
-    {
-        Rectangle rect = new(new Point(150, 150), new Size(10, 10));
-
-        _objects.Add(new Enemy(rect));
-    }
-
     private bool ShouldRenderBullet = false;
     private void Render()
     {

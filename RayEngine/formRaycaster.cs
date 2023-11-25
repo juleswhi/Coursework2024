@@ -8,7 +8,7 @@ namespace RayEngine
         {
             InitializeComponent();
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
-            new Raycaster(this, new LevelOne());
+            new Raycaster(this, "LevelOne");
         }
 
     }

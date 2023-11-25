@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ej5lnerYm80Rpqmi4p2m8Orv8mY5mC+h3CbLe6TbpjPh9edU1158+pOmPZSZQIHQtGpLvsJ6yubsdsb5FOkY0Q==",
+  "dgSpecHash": "JLToBtY1ENS6SBSVozV8ZBB0Kyvo1c2/l+jfoih6L3XYKsv1pWDhyBMF790+QJOzffzNeVhT6iuNAA6zwJdeLA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\i hate windows\\Documents\\GitHub\\Coursework2024\\DesktopUI\\DesktopUI.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\ayo mr white\\Documents\\GitHub\\Coursework2024\\DesktopUI\\DesktopUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ayo mr white\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

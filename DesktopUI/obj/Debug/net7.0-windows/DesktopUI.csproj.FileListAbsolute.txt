@@ -68,3 +68,4 @@ C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\RayEngine.pdb
 C:\Users\i hate windows\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\RayEngine.dll
 C:\Users\i hate windows\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\RayEngine.pdb
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\DesktopUI\bin\Debug\net7.0-windows\Newtonsoft.Json.dll

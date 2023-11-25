@@ -37,3 +37,4 @@ C:\Users\i hate windows\Documents\GitHub\Coursework2024\RayEngine\obj\Debug\net7
 C:\Users\i hate windows\Documents\GitHub\Coursework2024\RayEngine\obj\Debug\net7.0-windows\RayEngine.Materials.resources
 C:\Users\ayo mr white\Documents\GitHub\Coursework2024\RayEngine\obj\Debug\net7.0-windows\RayEngine.Materials.resources
 C:\Users\i hate windows\Documents\GitHub\Coursework2024\RayEngine\obj\Debug\net7.0-windows\RayEngine.formLevelEditor.resources
+C:\Users\ayo mr white\Documents\GitHub\Coursework2024\RayEngine\obj\Debug\net7.0-windows\RayEngine.formLevelEditor.resources
